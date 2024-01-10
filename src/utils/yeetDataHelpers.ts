@@ -1,3 +1,4 @@
+import { formatValueTo, fromWei } from "@daohaus/utils";
 import { YeeterItem } from "./types";
 
 export const calcProgressPerc = (a: string, b: string) => {
@@ -34,4 +35,21 @@ export const calcYeetIsComingSoon = (yeeter: YeeterItem) => {
 
 export const calcYeetIsFull = (yeeter: YeeterItem) => {
   return Number(yeeter.balance) >= Number(yeeter.goal);
+};
+
+export const formatMinContribution = (yeeter: YeeterItem) => {
+  return formatValueTo({
+    value: fromWei(yeeter.minTribute),
+    decimals: 5,
+    format: "number",
+  });
+};
+
+export const formatLootForMin = (yeeter: YeeterItem) => {
+  const loot = BigInt(yeeter.minTribute) * BigInt(yeeter.multiplier);
+  return formatValueTo({
+    value: fromWei(loot.toString()),
+    decimals: 5,
+    format: "number",
+  });
 };

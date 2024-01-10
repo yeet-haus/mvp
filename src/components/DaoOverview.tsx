@@ -11,6 +11,7 @@ import { YeetGoalProgress } from "./YeetGoalProgress";
 import { YeetTimeBlock } from "./YeetTimeBlock";
 import { YeetButton } from "./YeetButton";
 import { YeetList } from "./YeetList";
+import { formatMinContribution } from "../utils/yeetDataHelpers";
 
 const YeetsHeader = styled.div`
   width: 100%;
@@ -44,6 +45,8 @@ export const DaoOverview = ({
 
   if (!dao) return null;
 
+  console.log("yeeter", yeeter);
+
   return (
     <>
       {dao && (
@@ -60,7 +63,15 @@ export const DaoOverview = ({
 
             {yeeter && <YeetGoalProgress yeeter={yeeter} />}
             {yeeter && <YeetTimeBlock yeeter={yeeter} />}
-            <YeetButton isActive={yeeter?.isActive} isFull={yeeter?.isFull} />
+            {yeeter && (
+              <YeetButton
+                yeeter={yeeter}
+                // isActive={yeeter?.isActive}
+                // isFull={yeeter?.isFull}
+                // minContribution={formatMinContribution(yeeter.minTribute)}
+                // lootForContribution={}
+              />
+            )}
           </OverviewCard>
           <OverviewCard>
             <YeetsHeader>

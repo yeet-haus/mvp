@@ -10,6 +10,7 @@ import { MolochV3Dao } from "@daohaus/moloch-v3-data";
 import { YeeterMetadata } from "../utils/types";
 import { ValidNetwork } from "@daohaus/keychain-utils";
 import styled from "styled-components";
+
 import { Collapser } from "./Collapser";
 import { ProfileButtons } from "./ProfileButtons";
 
@@ -69,7 +70,7 @@ export const YeetProfile = ({
         <YeetName>{dao.name}</YeetName>
       </ProfileRow>
       <Collapser
-        title="About"
+        title="What are we funding?"
         content={
           <DetailsContainer>
             <div>
@@ -82,6 +83,8 @@ export const YeetProfile = ({
               <ParXs>{metadata.missionStatement || "?????"}</ParXs>
             </div>
             <ProfileButtons daoChain={daoChain} daoId={dao.id} />
+
+            {/* <YeetProjectLinks /> */}
           </DetailsContainer>
         }
       />

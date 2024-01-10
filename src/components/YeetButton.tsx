@@ -1,31 +1,38 @@
 import styled from "styled-components";
 import { ButtonRouterLink } from "./ButtonRouterLink";
-import { DataXs } from "@daohaus/ui";
+import { DataSm, DataXs } from "@daohaus/ui";
+
+import { YeeterItem } from "../utils/types";
+import {
+  formatLootForMin,
+  formatMinContribution,
+} from "../utils/yeetDataHelpers";
 
 const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   margin-top: 3rem;
 `;
 
-export const YeetButton = ({
-  isActive,
-  isFull,
-}: {
-  isActive?: boolean;
-  isFull?: boolean;
-}) => {
+export const YeetButton = ({ yeeter }: { yeeter: YeeterItem }) => {
   return (
     <ButtonContainer>
-      {isActive && (
+      {yeeter.isActive && (
         <>
+          <DataSm>
+            Receive {formatLootForMin(yeeter)} loot tokens per{" "}
+            {formatMinContribution(yeeter)} ETH contributed
+          </DataSm>
           <ButtonRouterLink
             to="yeet"
             size="lg"
             fullWidth={true}
-            disabled={isFull}
+            disabled={yeeter.isFull}
           >
             YEET!
           </ButtonRouterLink>
-          {isFull && <DataXs color="green">Raise is complete</DataXs>}
+          {yeeter.isFull && <DataXs color="green">Raise is complete</DataXs>}
         </>
       )}
     </ButtonContainer>

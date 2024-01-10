@@ -1,22 +1,10 @@
-import {
-  DataIndicator,
-  DataLg,
-  DataSm,
-  DataXl,
-  DataXs,
-  ParLg,
-  ParXl,
-  ParXs,
-  ProfileAvatar,
-  Tag,
-} from "@daohaus/ui";
+import { DataXl, DataXs, ParSm } from "@daohaus/ui";
 import { YeetsItem } from "../utils/types";
 import styled from "styled-components";
 import {
   formatShortDateTimeFromSeconds,
   formatValueTo,
   fromWei,
-  truncateAddress,
 } from "@daohaus/utils";
 import { ContributorProfile } from "./ContributorProfile";
 
@@ -56,16 +44,16 @@ export const YeetList = ({ yeets }: { yeets: YeetsItem[] }) => {
             <YeetListItem key={yeet.id}>
               <div className="profile">
                 <ContributorProfile address={yeet.contributor} />
-                <DataLg>
+                <DataXl>
                   {`${formatValueTo({
                     value: fromWei(yeet.amount),
                     decimals: 3,
                     format: "numberShort",
                   })} ETH`}
-                </DataLg>
+                </DataXl>
               </div>
               <div className="message">
-                <ParXl>{yeet.message}</ParXl>
+                <ParSm>{yeet.message}</ParSm>
                 <div className="date">
                   <DataXs>
                     {formatShortDateTimeFromSeconds(yeet.createdAt)}
