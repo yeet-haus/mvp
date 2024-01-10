@@ -47,7 +47,7 @@ export const YeetTimeBlock = ({ yeeter }: { yeeter: YeeterItem }) => {
     return (
       <SectionContainer>
         <DataIndicator
-          label="Yeet Start"
+          label="Yeet Starts"
           data={formatShortDateTimeFromSeconds(yeeter?.startTime)}
         />
       </SectionContainer>
