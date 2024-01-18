@@ -28,7 +28,7 @@ export const Launch = () => {
     <FormBuilder
       form={APP_FORM.SUMMON_YEETER}
       customFields={AppFieldLookup}
-      targetNetwork={"0x5"}
+      targetNetwork={"0xaa36a7"}
       submitButtonText="LET'S FUUUCKING GO"
       lifeCycleFns={{
         onPollSuccess: (result) => {
