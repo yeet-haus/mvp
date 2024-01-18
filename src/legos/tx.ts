@@ -1,6 +1,10 @@
 import { POSTER_TAGS, TXLego } from "@daohaus/utils";
 import { APP_CONTRACT } from "./contract";
 import { CONTRACT } from "@daohaus/moloch-v3-legos";
+import { Keychain, ValidNetwork } from "@daohaus/keychain-utils";
+import { GraphQLClient } from "graphql-request";
+import { GRAPH_URL, getValidChainId } from "../utils/constants";
+import { GET_YEETS_BY_TX } from "../utils/graphQueries";
 
 export enum ProposalTypeIds {
   Signal = "SIGNAL",
@@ -14,6 +18,38 @@ export enum ProposalTypeIds {
   GuildKick = "GUILDKICK",
   WalletConnect = "WALLETCONNECT",
 }
+
+// todo: poll yeeter subgraph for tx and move these to a better spot
+const timeout = (ms: number) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
+const someFunction = (result: any | undefined) => {
+  console.log("result", result);
+  if (result?.yeets[0]) {
+    return true;
+  }
+  return false;
+};
+
+const someAsyncFunction = async ({
+  chainId,
+  txHash,
+}: {
+  chainId: ValidNetwork;
+  txHash: string;
+}) => {
+  console.log("poll txHash, chainId", txHash, chainId);
+  const chain = getValidChainId(chainId);
+  const graphQLClient = new GraphQLClient(GRAPH_URL[chain]);
+  const res = await graphQLClient.request(GET_YEETS_BY_TX, {
+    txHash: txHash?.toLowerCase(),
+  });
+
+  console.log("res", res);
+  // await timeout(10000);
+  return res;
+};
 
 export const APP_TX: Record<string, TXLego> = {
   YEETER_SUMMON: {
@@ -29,6 +65,10 @@ export const APP_TX: Record<string, TXLego> = {
     args: [".formValues.message"],
     overrides: {
       value: ".formValues.amount",
+    },
+    customPoll: {
+      fetch: someAsyncFunction,
+      test: someFunction,
     },
   },
   UPDATE_METADATA_SETTINGS: {

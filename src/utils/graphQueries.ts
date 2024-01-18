@@ -54,3 +54,13 @@ export const LIST_YEETS = gql`
     }
   }
 `;
+
+export const GET_YEETS_BY_TX = gql`
+  query yeets($txHash: String!) {
+    yeets(where: { txHash: $txHash }, first: 1) {
+      id
+      txHash
+      shares
+    }
+  }
+`;

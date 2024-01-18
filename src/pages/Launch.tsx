@@ -8,7 +8,6 @@ import { useDHConnect } from "@daohaus/connect";
 import { targetNetworks } from "../utils/constants";
 
 const now = () => (new Date().getTime() / 1000).toFixed();
-const later = () => (new Date().getTime() / 1000 + 2419200).toFixed();
 
 export const Launch = () => {
   const navigate = useNavigate();

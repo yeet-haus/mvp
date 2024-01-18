@@ -20,6 +20,7 @@ import { Launch } from "./pages/Launch";
 import { Yeet } from "./pages/Yeet";
 import { Wtf } from "./pages/Wtf";
 import { Success } from "./pages/Success";
+import { YeetSuccess } from "./pages/YeetSuccess";
 
 export const Routes = ({
   setDaoChainId,
@@ -53,6 +54,7 @@ export const Routes = ({
       <Route path={MULTI_DAO_ROUTER} element={<DaoContainer />}>
         <Route index element={<Dao />} />
         <Route path="yeet" element={<Yeet />} />
+        <Route path="yeet/success/:lootReceived" element={<YeetSuccess />} />
         <Route path="update" element={<UpdateSettings />} />
       </Route>
     </Router>
