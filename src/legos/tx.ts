@@ -19,35 +19,26 @@ export enum ProposalTypeIds {
   WalletConnect = "WALLETCONNECT",
 }
 
-// todo: poll yeeter subgraph for tx and move these to a better spot
-const timeout = (ms: number) => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-};
-
-const someFunction = (result: any | undefined) => {
-  console.log("result", result);
+const testYeet = (result: any | undefined) => {
   if (result?.yeets[0]) {
     return true;
   }
   return false;
 };
 
-const someAsyncFunction = async ({
+const pollYeet = async ({
   chainId,
   txHash,
 }: {
   chainId: ValidNetwork;
   txHash: string;
 }) => {
-  console.log("poll txHash, chainId", txHash, chainId);
   const chain = getValidChainId(chainId);
   const graphQLClient = new GraphQLClient(GRAPH_URL[chain]);
   const res = await graphQLClient.request(GET_YEETS_BY_TX, {
     txHash: txHash?.toLowerCase(),
   });
 
-  console.log("res", res);
-  // await timeout(10000);
   return res;
 };
 
@@ -67,8 +58,8 @@ export const APP_TX: Record<string, TXLego> = {
       value: ".formValues.amount",
     },
     customPoll: {
-      fetch: someAsyncFunction,
-      test: someFunction,
+      fetch: pollYeet,
+      test: testYeet,
     },
   },
   UPDATE_METADATA_SETTINGS: {
