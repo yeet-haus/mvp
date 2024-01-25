@@ -17,8 +17,6 @@ export const ContributorProfile = ({ address }: YeeterProfileProps) => {
     address,
   });
 
-  console.log("profile", profile);
-
   return (
     <ProfileContainer>
       <ProfileAvatar address={address} image={profile?.avatar} />

@@ -70,7 +70,11 @@ export const DaoCard = ({
     <StyledDaoCard className="dao-card">
       <div className="top-box">
         <div className="alert-box">
-          <ProfileAvatar size="xl" address={dao?.id} image={metadata?.icon} />
+          <ProfileAvatar
+            size="xl"
+            address={dao?.id}
+            image={metadata?.icon || dao?.avatarImg}
+          />
         </div>
       </div>
       <ParLg className="dao-title">

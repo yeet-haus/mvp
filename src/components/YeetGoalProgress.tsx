@@ -48,7 +48,7 @@ export const YeetGoalProgress = ({ yeeter }: { yeeter: YeeterItem }) => {
           <div className="bar">
             <ProgressBar
               progressSection={[
-                { percentage: percentageComplete, color: "green" },
+                { percentage: percentageComplete, color: "#FEDB1D" },
               ]}
               backgroundColor="black"
             />
