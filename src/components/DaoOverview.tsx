@@ -45,8 +45,6 @@ export const DaoOverview = ({
 
   if (!dao) return null;
 
-  console.log("yeeter", yeeter);
-
   return (
     <>
       {dao && (

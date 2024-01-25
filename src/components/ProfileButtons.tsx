@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { ValidNetwork } from "@daohaus/keychain-utils";
 import { ButtonRouterLink } from "./ButtonRouterLink";
 import { Link } from "@daohaus/ui";
+import { useDHConnect } from "@daohaus/connect";
+import { useDaoMember } from "@daohaus/moloch-v3-hooks";
 
 export const ButtonRow = styled.div`
   display: flex;
@@ -15,11 +17,13 @@ export const ButtonRow = styled.div`
 export const ProfileButtons = ({
   daoChain,
   daoId,
+  address,
 }: {
   daoChain: ValidNetwork;
   daoId: string;
+  address?: string;
 }) => {
-  const isMember = true;
+  const { member } = useDaoMember({ daoChain, daoId, memberAddress: address });
 
   return (
     <>
@@ -30,7 +34,7 @@ export const ProfileButtons = ({
         >
           The DAO behind the Yeet
         </Link>
-        {isMember && (
+        {member && Number(member.shares) > 0 && (
           <ButtonRouterLink to="update" variant="link" size="md">
             Edit Yeet Details
           </ButtonRouterLink>

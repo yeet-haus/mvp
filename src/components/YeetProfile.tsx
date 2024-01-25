@@ -13,6 +13,7 @@ import styled from "styled-components";
 
 import { Collapser } from "./Collapser";
 import { ProfileButtons } from "./ProfileButtons";
+import { useDHConnect } from "@daohaus/connect";
 
 const DaoProfileAvatar = styled(ProfileAvatar)`
   width: 18rem;
@@ -41,6 +42,7 @@ const YeetName = styled(H3)`
   font-weight: 900;
   line-height: 6rem;
   width: 65%;
+  word-wrap: break-word;
   @media ${widthQuery.md} {
     width: 100%;
   }
@@ -63,10 +65,14 @@ export const YeetProfile = ({
   shamanAddress: string;
   daoChain: ValidNetwork;
 }) => {
+  const { address } = useDHConnect();
   return (
     <ProfileContainer>
       <ProfileRow>
-        <DaoProfileAvatar address={shamanAddress} image={metadata.icon} />
+        <DaoProfileAvatar
+          address={shamanAddress}
+          image={metadata.icon || dao.avatarImg}
+        />
         <YeetName>{dao.name}</YeetName>
       </ProfileRow>
       <Collapser
@@ -82,7 +88,11 @@ export const YeetProfile = ({
 
               <ParXs>{metadata.missionStatement || "?????"}</ParXs>
             </div>
-            <ProfileButtons daoChain={daoChain} daoId={dao.id} />
+            <ProfileButtons
+              daoChain={daoChain}
+              daoId={dao.id}
+              address={address}
+            />
 
             {/* <YeetProjectLinks /> */}
           </DetailsContainer>

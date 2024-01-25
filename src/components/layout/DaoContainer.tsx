@@ -6,6 +6,7 @@ import { ValidNetwork } from "@daohaus/keychain-utils";
 import { CurrentDaoProvider, useDaoData } from "@daohaus/moloch-v3-hooks";
 import { HeaderAvatar } from "../HeaderAvatar";
 import { CurrentYeeterProvider } from "../../contexts/CurrentYeeterContext";
+import { useYeeter } from "../../hooks/useYeeter";
 
 export const DaoContainer = () => {
   const { proposalId, memberAddress, daoChain, daoId } = useParams<{
@@ -45,13 +46,18 @@ const Dao = ({
     daoChain: daoChain as string,
   });
 
-  const routePath = `molochv3/${daoChain}/${daoId}`;
-
   // TODO: get better shaman address
   const shamanAddress =
     dao && dao.shamen && dao.shamen.length > 0
       ? dao.shamen[0].shamanAddress
       : undefined;
+  const { metadata } = useYeeter({
+    chainId: daoChain,
+    daoId,
+    shamanAddress,
+  });
+
+  const routePath = `molochv3/${daoChain}/${daoId}`;
 
   return (
     <DHLayout
@@ -66,7 +72,7 @@ const Dao = ({
           <HeaderAvatar
             name={dao.name}
             address={dao.id}
-            imgUrl={dao?.avatarImg}
+            imgUrl={metadata?.icon || dao?.avatarImg}
           />
         )
       }
