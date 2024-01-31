@@ -40,14 +40,6 @@ export const Home = () => {
     <SingleColumnLayout>
       <Contain>
         <StyledH1>YEETER IS A REVOLUTION IN WEB3 FUNDRAISING</StyledH1>
-        <ParLg>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisi
-          lacus, dictum at ultricies et, varius ut lacus. Vestibulum ante ipsum
-          primis in faucibus orci luctus et ultrices posuere cubilia curae;
-          Nulla interdum lobortis nisi, a placerat leo auctor sed. Vestibulum
-          ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-          curae; Nam venenatis convallis est.{" "}
-        </ParLg>
         <StyledRouterLink to="wtf">
           <StyledH2>WHAT THE ACTUAL FUCK?</StyledH2>
         </StyledRouterLink>

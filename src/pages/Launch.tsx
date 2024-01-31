@@ -5,9 +5,10 @@ import { APP_FORM } from "../legos/forms";
 import { AppFieldLookup } from "../legos/legoConfig";
 import { useNavigate } from "react-router-dom";
 import { useDHConnect } from "@daohaus/connect";
-import { targetNetworks } from "../utils/constants";
+import { DEFAULT_YEETER_VALUES, targetNetworks } from "../utils/constants";
 
-const now = () => (new Date().getTime() / 1000).toFixed();
+const now = new Date().getTime() / 1000;
+const then = now + 604800;
 
 export const Launch = () => {
   const navigate = useNavigate();
@@ -36,7 +37,11 @@ export const Launch = () => {
           onFormComplete(result);
         },
       }}
-      defaultValues={{ startTime: now(), endTime: 1700256682 }}
+      defaultValues={{
+        startTime: now.toFixed(),
+        endTime: then.toFixed(),
+        lootPerYeet: DEFAULT_YEETER_VALUES.lootPerYeet,
+      }}
     />
   );
 };

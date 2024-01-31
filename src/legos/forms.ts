@@ -1,6 +1,7 @@
 import { APP_TX } from "./tx";
 import { CustomFormLego } from "./legoConfig";
 import { FIELD } from "@daohaus/moloch-v3-legos";
+import { DEFAULT_YEETER_VALUES } from "../utils/constants";
 
 export const APP_FORM: Record<string, CustomFormLego> = {
   YEET_FORM: {
@@ -36,8 +37,8 @@ export const APP_FORM: Record<string, CustomFormLego> = {
       startTime: true,
       endTime: true,
       minTribute: true,
-      multiplier: true,
       members: true,
+      lootPerYeet: true,
     },
     log: true,
     tx: APP_TX.YEETER_SUMMON,
@@ -98,9 +99,10 @@ export const APP_FORM: Record<string, CustomFormLego> = {
               expectType: "number",
             },
             right: {
-              id: "multiplier",
+              id: "lootPerYeet",
               type: "lootPerYeet",
               label: "Loot per Minimum Tribute",
+              expectType: "number",
             },
           },
         ],

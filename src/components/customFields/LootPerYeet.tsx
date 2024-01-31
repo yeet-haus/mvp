@@ -1,15 +1,35 @@
 import { useFormContext } from "react-hook-form";
 
-import { Buildable, Field, FieldWrapper, ParLg } from "@daohaus/ui";
+import { Buildable, Field, FieldWrapper, Input, ParLg } from "@daohaus/ui";
 import { DEFAULT_YEETER_VALUES } from "../../utils/constants";
-import { isNumberish, toWholeUnits } from "@daohaus/utils";
+import {
+  isNumberString,
+  isNumberish,
+  isString,
+  toBaseUnits,
+  toWholeUnits,
+} from "@daohaus/utils";
+import { useEffect } from "react";
+
+// normal input - default to 100
 
 export const LootPerYeet = (props: Buildable<Field>) => {
-  const { watch } = useFormContext();
+  const { watch, register, setValue } = useFormContext();
 
   const minTribute = watch("minTribute");
+  const lootPerYeet = watch("lootPerYeet");
 
-  console.log("minTribute", minTribute);
+  useEffect(() => {
+    if (
+      !lootPerYeet ||
+      !lootPerYeet ||
+      !isNumberish(minTribute) ||
+      !isNumberString(lootPerYeet)
+    )
+      return;
+    const multiplier = Number(toBaseUnits(lootPerYeet)) / Number(minTribute);
+    setValue("multiplier", multiplier);
+  }, [minTribute, lootPerYeet]);
 
   return (
     <FieldWrapper
@@ -28,11 +48,24 @@ export const LootPerYeet = (props: Buildable<Field>) => {
       id={props.id}
       rules={props.rules}
     >
-      <ParLg>
-        {isNumberish(minTribute) &&
-          // @ts-expect-error
-          Number(toWholeUnits(minTribute)) * DEFAULT_YEETER_VALUES.multiplier}
-      </ParLg>
+      <Input
+        {...register(props.id, props.rules)}
+        id={props.id}
+        long={props.long}
+        full={props.full}
+        icon={props.icon}
+        success={props.success}
+        warning={props.warning}
+        error={props.error}
+        number={props.number}
+        address={props.address}
+        className={props.className}
+        placeholder={props.placeholder}
+        defaultValue={props.defaultValue}
+        value={props.value}
+        disabled={props.disabled}
+        hidden={props.hidden}
+      />
     </FieldWrapper>
   );
 };
