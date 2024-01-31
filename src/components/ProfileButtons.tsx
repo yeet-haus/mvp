@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { ValidNetwork } from "@daohaus/keychain-utils";
 import { ButtonRouterLink } from "./ButtonRouterLink";
 import { DataMd, Link, ParXs, widthQuery } from "@daohaus/ui";
-import { useDHConnect } from "@daohaus/connect";
 import { useDaoMember } from "@daohaus/moloch-v3-hooks";
 import { YeeterMetadata } from "../utils/types";
 import { useMemo } from "react";
@@ -25,6 +24,10 @@ export const ButtonRow = styled.div`
   @media ${widthQuery.sm} {
     align-items: center;
   }
+`;
+
+const BoldDataMd = styled(DataMd)`
+  font-weight: 900;
 `;
 
 type LinkObj = {
@@ -66,12 +69,10 @@ export const ProfileButtons = ({
     );
   }, [metadata, daoChain, daoId]);
 
-  console.log("linkList", linkList);
-
   return (
     <>
       <ButtonRow>
-        <DataMd>Project Links</DataMd>
+        <BoldDataMd>Project Links</BoldDataMd>
         {linkList &&
           linkList.map((linkObj: LinkObj) => {
             return (

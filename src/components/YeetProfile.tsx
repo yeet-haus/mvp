@@ -63,6 +63,10 @@ const DetailsContainer = styled.div`
   }
 `;
 
+const BoldDataMd = styled(DataMd)`
+  font-weight: 900;
+`;
+
 export const YeetProfile = ({
   dao,
   metadata,
@@ -90,13 +94,13 @@ export const YeetProfile = ({
         content={
           <DetailsContainer>
             <div>
-              <DataMd>Details</DataMd>
+              <BoldDataMd>Project Details</BoldDataMd>
               <ReactMarkdown className="projectDetails">
                 {metadata.projectDetails || "?????"}
               </ReactMarkdown>
             </div>
             <div>
-              <DataMd>Mission</DataMd>
+              <BoldDataMd>Mission</BoldDataMd>
 
               <ReactMarkdown className="mission">
                 {metadata.missionStatement || "?????"}
@@ -108,8 +112,6 @@ export const YeetProfile = ({
               address={address}
               metadata={metadata}
             />
-
-            {/* <YeetProjectLinks /> */}
           </DetailsContainer>
         }
       />
