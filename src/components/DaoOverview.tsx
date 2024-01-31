@@ -15,7 +15,7 @@ import { formatMinContribution } from "../utils/yeetDataHelpers";
 
 const YeetsHeader = styled.div`
   width: 100%;
-  text-align: right;
+  text-align: center;
 `;
 
 type DaoOverviewProps = {
@@ -61,19 +61,10 @@ export const DaoOverview = ({
 
             {yeeter && <YeetGoalProgress yeeter={yeeter} />}
             {yeeter && <YeetTimeBlock yeeter={yeeter} />}
-            {yeeter && (
-              <YeetButton
-                yeeter={yeeter}
-                // isActive={yeeter?.isActive}
-                // isFull={yeeter?.isFull}
-                // minContribution={formatMinContribution(yeeter.minTribute)}
-                // lootForContribution={}
-              />
-            )}
+            {yeeter && <YeetButton yeeter={yeeter} />}
           </OverviewCard>
           <OverviewCard>
             <YeetsHeader>
-              <div></div>
               <DataIndicator label="Total Yeets" data={yeeter?.yeetCount} />
             </YeetsHeader>
             <YeetList yeets={yeets} />

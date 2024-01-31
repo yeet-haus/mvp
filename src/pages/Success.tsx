@@ -1,6 +1,8 @@
 import { useDHConnect } from "@daohaus/connect";
-import { Button, H1, SingleColumnLayout } from "@daohaus/ui";
-import { Link, useParams } from "react-router-dom";
+import { generateExplorerLink } from "@daohaus/keychain-utils";
+import { Button, H1, Link, SingleColumnLayout } from "@daohaus/ui";
+import { useMemo } from "react";
+import { useParams, Link as RouterLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Contain = styled.div`
@@ -24,7 +26,15 @@ const ButtonContainer = styled.div`
   margin-top: 5rem;
 `;
 
-const LinkButton = styled(Link)`
+const LinkButton = styled(RouterLink)`
+  text-decoration: none;
+  color: unset;
+  &:hover {
+    text-decoration: none;
+  }
+`;
+
+const ExternalLinkButton = styled(Link)`
   text-decoration: none;
   color: unset;
   &:hover {
@@ -33,16 +43,33 @@ const LinkButton = styled(Link)`
 `;
 
 export const Success = () => {
-  const { daoId } = useParams();
+  const { daoId, txHash } = useParams();
   const { chainId } = useDHConnect();
+
+  const explorerLink = useMemo(() => {
+    if (chainId && txHash) {
+      return generateExplorerLink({
+        chainId,
+        address: txHash,
+        type: "tx",
+      });
+    }
+  }, [txHash, chainId]);
 
   return (
     <SingleColumnLayout>
       <Contain>
         <StyledH1>AAAAAH SHIIIIIIIIT YOU MADE A YEETER!</StyledH1>
         <ButtonContainer>
+          <Button color="primary" fullWidth>
+            <LinkButton to={`/molochV3/${chainId}/${daoId}/`}>
+              View Project
+            </LinkButton>
+          </Button>
           <Button color="secondary" fullWidth>
-            <LinkButton to={`/molochV3/${chainId}/${daoId}/`}>YEET</LinkButton>
+            <ExternalLinkButton href={explorerLink}>
+              View Txn
+            </ExternalLinkButton>
           </Button>
           {/* <Button color="secondary" fullWidth>
             <LinkButton to={`${chainId}/${daoId}/`}>SHARE</LinkButton>

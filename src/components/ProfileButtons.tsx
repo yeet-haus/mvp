@@ -1,43 +1,93 @@
 import styled from "styled-components";
 import { ValidNetwork } from "@daohaus/keychain-utils";
 import { ButtonRouterLink } from "./ButtonRouterLink";
-import { Link } from "@daohaus/ui";
-import { useDHConnect } from "@daohaus/connect";
+import { DataMd, Link, ParXs, widthQuery } from "@daohaus/ui";
 import { useDaoMember } from "@daohaus/moloch-v3-hooks";
+import { YeeterMetadata } from "../utils/types";
+import { useMemo } from "react";
 
 export const ButtonRow = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: left;
   justify-content: flex-start;
-  gap: 4rem;
-  margin-top: 1rem;
+  gap: 1rem;
+
+  .editLink {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 1.5rem;
+  }
+
+  @media ${widthQuery.sm} {
+    align-items: center;
+  }
 `;
+
+const BoldDataMd = styled(DataMd)`
+  font-weight: 900;
+`;
+
+type LinkObj = {
+  url: string;
+  label: string;
+};
 
 export const ProfileButtons = ({
   daoChain,
   daoId,
   address,
+  metadata,
 }: {
   daoChain: ValidNetwork;
   daoId: string;
   address?: string;
+  metadata: YeeterMetadata;
 }) => {
   const { member } = useDaoMember({ daoChain, daoId, memberAddress: address });
+
+  const linkList = useMemo(() => {
+    if (!metadata || !metadata.links) return;
+
+    const validLinks = [
+      {
+        url: `https://admin.daohaus.club/#/molochv3/${daoChain}/${daoId}`,
+        label: "DAO",
+      },
+    ];
+
+    return metadata.links.reduce(
+      (links: LinkObj[], link: string): LinkObj[] => {
+        const parsedLink = JSON.parse(link);
+        if (!parsedLink.url) return links;
+        links = [...links, parsedLink];
+        return links;
+      },
+      validLinks
+    );
+  }, [metadata, daoChain, daoId]);
 
   return (
     <>
       <ButtonRow>
-        <Link
-          href={`https://admin.daohaus.club/#/molochv3/${daoChain}/${daoId}`}
-          type="external"
-        >
-          The DAO behind the Yeet
-        </Link>
+        <BoldDataMd>Project Links</BoldDataMd>
+        {linkList &&
+          linkList.map((linkObj: LinkObj) => {
+            return (
+              <Link href={linkObj.url} type="external" key={linkObj.label}>
+                {linkObj.label}
+              </Link>
+            );
+          })}
+
         {member && Number(member.shares) > 0 && (
-          <ButtonRouterLink to="update" variant="link" size="md">
-            Edit Yeet Details
-          </ButtonRouterLink>
+          <div className="editLink">
+            <ButtonRouterLink to="update" variant="link" size="md">
+              <ParXs color="primary">Edit Yeet Details</ParXs>
+            </ButtonRouterLink>
+          </div>
         )}
       </ButtonRow>
     </>

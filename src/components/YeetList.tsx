@@ -1,6 +1,7 @@
+import ReactMarkdown from "react-markdown";
+import styled from "styled-components";
 import { DataXl, DataXs, ParSm } from "@daohaus/ui";
 import { YeetsItem } from "../utils/types";
-import styled from "styled-components";
 import {
   formatShortDateTimeFromSeconds,
   formatValueTo,
@@ -53,7 +54,9 @@ export const YeetList = ({ yeets }: { yeets: YeetsItem[] }) => {
                 </DataXl>
               </div>
               <div className="message">
-                <ParSm>{yeet.message}</ParSm>
+                <ReactMarkdown className="projectDetails">
+                  {yeet.message}
+                </ReactMarkdown>
                 <div className="date">
                   <DataXs>
                     {formatShortDateTimeFromSeconds(yeet.createdAt)}

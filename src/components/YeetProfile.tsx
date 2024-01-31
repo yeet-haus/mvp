@@ -1,3 +1,5 @@
+import styled from "styled-components";
+import ReactMarkdown from "react-markdown";
 import {
   DataMd,
   H3,
@@ -9,7 +11,6 @@ import {
 import { MolochV3Dao } from "@daohaus/moloch-v3-data";
 import { YeeterMetadata } from "../utils/types";
 import { ValidNetwork } from "@daohaus/keychain-utils";
-import styled from "styled-components";
 
 import { Collapser } from "./Collapser";
 import { ProfileButtons } from "./ProfileButtons";
@@ -38,11 +39,12 @@ const ProfileRow = styled.div`
 `;
 
 const YeetName = styled(H3)`
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 900;
   line-height: 6rem;
   width: 65%;
   word-wrap: break-word;
+
   @media ${widthQuery.md} {
     width: 100%;
   }
@@ -52,6 +54,17 @@ const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
+  .projectDetails {
+    margin-top: 1rem;
+  }
+  .mission {
+    margin-top: 1rem;
+  }
+`;
+
+const BoldDataMd = styled(DataMd)`
+  font-weight: 900;
 `;
 
 export const YeetProfile = ({
@@ -66,6 +79,7 @@ export const YeetProfile = ({
   daoChain: ValidNetwork;
 }) => {
   const { address } = useDHConnect();
+
   return (
     <ProfileContainer>
       <ProfileRow>
@@ -80,21 +94,24 @@ export const YeetProfile = ({
         content={
           <DetailsContainer>
             <div>
-              <DataMd>Details</DataMd>
-              <ParSm>{metadata.projectDetails || "?????"}</ParSm>
+              <BoldDataMd>Project Details</BoldDataMd>
+              <ReactMarkdown className="projectDetails">
+                {metadata.projectDetails || "?????"}
+              </ReactMarkdown>
             </div>
             <div>
-              <DataMd>Mission</DataMd>
+              <BoldDataMd>Mission</BoldDataMd>
 
-              <ParXs>{metadata.missionStatement || "?????"}</ParXs>
+              <ReactMarkdown className="mission">
+                {metadata.missionStatement || "?????"}
+              </ReactMarkdown>
             </div>
             <ProfileButtons
               daoChain={daoChain}
               daoId={dao.id}
               address={address}
+              metadata={metadata}
             />
-
-            {/* <YeetProjectLinks /> */}
           </DetailsContainer>
         }
       />

@@ -49,7 +49,7 @@ export const Routes = ({
         <Route path="explore" element={<Explore />} />
         <Route path="launch" element={<Launch />} />
         <Route path="wtf" element={<Wtf />} />
-        <Route path={`success/:daoId`} element={<Success />} />
+        <Route path={`success/:daoId/:txHash`} element={<Success />} />
       </Route>
       <Route path={MULTI_DAO_ROUTER} element={<DaoContainer />}>
         <Route index element={<Dao />} />
