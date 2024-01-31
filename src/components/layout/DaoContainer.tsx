@@ -64,7 +64,7 @@ const Dao = ({
       pathname={location.pathname}
       navLinks={[
         { label: "Home", href: `/` },
-        { label: "Dashboard", href: `/${routePath}` },
+        { label: "Project", href: `/${routePath}` },
       ]}
       leftNav={
         dao?.name &&

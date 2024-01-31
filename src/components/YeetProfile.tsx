@@ -39,11 +39,12 @@ const ProfileRow = styled.div`
 `;
 
 const YeetName = styled(H3)`
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 900;
   line-height: 6rem;
   width: 65%;
   word-wrap: break-word;
+
   @media ${widthQuery.md} {
     width: 100%;
   }
@@ -74,6 +75,7 @@ export const YeetProfile = ({
   daoChain: ValidNetwork;
 }) => {
   const { address } = useDHConnect();
+
   return (
     <ProfileContainer>
       <ProfileRow>
@@ -104,6 +106,7 @@ export const YeetProfile = ({
               daoChain={daoChain}
               daoId={dao.id}
               address={address}
+              metadata={metadata}
             />
 
             {/* <YeetProjectLinks /> */}
