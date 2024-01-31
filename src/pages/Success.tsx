@@ -1,5 +1,7 @@
 import { useDHConnect } from "@daohaus/connect";
+import { generateExplorerLink } from "@daohaus/keychain-utils";
 import { Button, H1, SingleColumnLayout } from "@daohaus/ui";
+import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -33,16 +35,31 @@ const LinkButton = styled(Link)`
 `;
 
 export const Success = () => {
-  const { daoId } = useParams();
+  const { daoId, txHash } = useParams();
   const { chainId } = useDHConnect();
+
+  const explorerLink = useMemo(() => {
+    if (chainId && txHash) {
+      return generateExplorerLink({
+        chainId,
+        address: txHash,
+        type: "tx",
+      });
+    }
+  }, [txHash, chainId]);
 
   return (
     <SingleColumnLayout>
       <Contain>
         <StyledH1>AAAAAH SHIIIIIIIIT YOU MADE A YEETER!</StyledH1>
         <ButtonContainer>
+          <Button color="primary" fullWidth>
+            <LinkButton to={`/molochV3/${chainId}/${daoId}/`}>
+              View Project
+            </LinkButton>
+          </Button>
           <Button color="secondary" fullWidth>
-            <LinkButton to={`/molochV3/${chainId}/${daoId}/`}>YEET</LinkButton>
+            <LinkButton to={explorerLink}>View Txn</LinkButton>
           </Button>
           {/* <Button color="secondary" fullWidth>
             <LinkButton to={`${chainId}/${daoId}/`}>SHARE</LinkButton>

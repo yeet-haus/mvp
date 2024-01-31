@@ -1,3 +1,5 @@
+import styled from "styled-components";
+import ReactMarkdown from "react-markdown";
 import {
   DataMd,
   H3,
@@ -9,7 +11,6 @@ import {
 import { MolochV3Dao } from "@daohaus/moloch-v3-data";
 import { YeeterMetadata } from "../utils/types";
 import { ValidNetwork } from "@daohaus/keychain-utils";
-import styled from "styled-components";
 
 import { Collapser } from "./Collapser";
 import { ProfileButtons } from "./ProfileButtons";
@@ -52,6 +53,13 @@ const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
+  .projectDetails {
+    margin-top: 1rem;
+  }
+  .mission {
+    margin-top: 1rem;
+  }
 `;
 
 export const YeetProfile = ({
@@ -81,12 +89,16 @@ export const YeetProfile = ({
           <DetailsContainer>
             <div>
               <DataMd>Details</DataMd>
-              <ParSm>{metadata.projectDetails || "?????"}</ParSm>
+              <ReactMarkdown className="projectDetails">
+                {metadata.projectDetails || "?????"}
+              </ReactMarkdown>
             </div>
             <div>
               <DataMd>Mission</DataMd>
 
-              <ParXs>{metadata.missionStatement || "?????"}</ParXs>
+              <ReactMarkdown className="mission">
+                {metadata.missionStatement || "?????"}
+              </ReactMarkdown>
             </div>
             <ProfileButtons
               daoChain={daoChain}

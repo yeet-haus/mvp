@@ -1,6 +1,6 @@
 import { DHLayout, useDHConnect } from "@daohaus/connect";
 import { TXBuilder } from "@daohaus/tx-builder";
-import { Footer, H4 } from "@daohaus/ui";
+import { H4 } from "@daohaus/ui";
 import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { assembleYeeterSummonerArgs } from "../../utils/summonTx";
@@ -32,7 +32,6 @@ export const HomeContainer = () => {
           { label: "Launch", href: `/launch` },
           { label: "WTF", href: `/wtf` },
         ]}
-        footer={<Footer />}
       >
         <Outlet />
       </DHLayout>
