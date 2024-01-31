@@ -1,8 +1,8 @@
 import { useDHConnect } from "@daohaus/connect";
 import { generateExplorerLink } from "@daohaus/keychain-utils";
-import { Button, H1, SingleColumnLayout } from "@daohaus/ui";
+import { Button, H1, Link, SingleColumnLayout } from "@daohaus/ui";
 import { useMemo } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams, Link as RouterLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Contain = styled.div`
@@ -26,7 +26,15 @@ const ButtonContainer = styled.div`
   margin-top: 5rem;
 `;
 
-const LinkButton = styled(Link)`
+const LinkButton = styled(RouterLink)`
+  text-decoration: none;
+  color: unset;
+  &:hover {
+    text-decoration: none;
+  }
+`;
+
+const ExternalLinkButton = styled(Link)`
   text-decoration: none;
   color: unset;
   &:hover {
@@ -59,7 +67,9 @@ export const Success = () => {
             </LinkButton>
           </Button>
           <Button color="secondary" fullWidth>
-            <LinkButton to={explorerLink}>View Txn</LinkButton>
+            <ExternalLinkButton href={explorerLink}>
+              View Txn
+            </ExternalLinkButton>
           </Button>
           {/* <Button color="secondary" fullWidth>
             <LinkButton to={`${chainId}/${daoId}/`}>SHARE</LinkButton>
