@@ -76,7 +76,7 @@ export const ProfileButtons = ({
         {linkList &&
           linkList.map((linkObj: LinkObj) => {
             return (
-              <Link href={linkObj.url} type="external">
+              <Link href={linkObj.url} type="external" key={linkObj.label}>
                 {linkObj.label}
               </Link>
             );
