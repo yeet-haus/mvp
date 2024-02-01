@@ -21,8 +21,6 @@ export const useYeets = ({
         shamanAddress: shamanAddress?.toLowerCase(),
       });
 
-      console.log("res", res);
-
       // @ts-expect-error
       return res?.yeets;
     },

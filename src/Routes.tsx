@@ -54,7 +54,10 @@ export const Routes = ({
       <Route path={MULTI_DAO_ROUTER} element={<DaoContainer />}>
         <Route index element={<Dao />} />
         <Route path="yeet" element={<Yeet />} />
-        <Route path="yeet/success/:lootReceived" element={<YeetSuccess />} />
+        <Route
+          path="yeet/success/:lootReceived/:txHash"
+          element={<YeetSuccess />}
+        />
         <Route path="update" element={<UpdateSettings />} />
       </Route>
     </Router>
