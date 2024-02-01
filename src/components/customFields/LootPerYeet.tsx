@@ -1,17 +1,8 @@
 import { useFormContext } from "react-hook-form";
 
 import { Buildable, Field, FieldWrapper, Input, ParLg } from "@daohaus/ui";
-import { DEFAULT_YEETER_VALUES } from "../../utils/constants";
-import {
-  isNumberString,
-  isNumberish,
-  isString,
-  toBaseUnits,
-  toWholeUnits,
-} from "@daohaus/utils";
+import { isNumberString, isNumberish, toBaseUnits } from "@daohaus/utils";
 import { useEffect } from "react";
-
-// normal input - default to 100
 
 export const LootPerYeet = (props: Buildable<Field>) => {
   const { watch, register, setValue } = useFormContext();

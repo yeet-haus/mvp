@@ -1,7 +1,6 @@
 import { APP_TX } from "./tx";
 import { CustomFormLego } from "./legoConfig";
 import { FIELD } from "@daohaus/moloch-v3-legos";
-import { DEFAULT_YEETER_VALUES } from "../utils/constants";
 
 export const APP_FORM: Record<string, CustomFormLego> = {
   YEET_FORM: {
@@ -14,11 +13,28 @@ export const APP_FORM: Record<string, CustomFormLego> = {
     tx: APP_TX.YEET,
     fields: [
       {
-        id: "amount",
-        type: "toWeiInput",
-        label: "Yeet Amount",
-        placeholder: "Yeet Yeet",
-        expectType: "number",
+        id: "yeetHelper",
+        type: "yeetHelper",
+        label: "Get",
+      },
+      {
+        id: "yeetSplit",
+        type: "splitColumn",
+        rows: [
+          {
+            rowId: "row1",
+            left: {
+              id: "amount",
+              type: "yeetAmount",
+              label: "Yeet ETH",
+              expectType: "number",
+            },
+            right: {
+              id: "yeetLoot",
+              type: "yeetLoot",
+            },
+          },
+        ],
       },
       {
         id: "message",
