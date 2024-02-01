@@ -13,11 +13,28 @@ export const APP_FORM: Record<string, CustomFormLego> = {
     tx: APP_TX.YEET,
     fields: [
       {
-        id: "amount",
-        type: "toWeiInput",
-        label: "Yeet Amount",
-        placeholder: "Yeet Yeet",
-        expectType: "number",
+        id: "yeetHelper",
+        type: "yeetHelper",
+        label: "Get",
+      },
+      {
+        id: "yeetSplit",
+        type: "splitColumn",
+        rows: [
+          {
+            rowId: "row1",
+            left: {
+              id: "amount",
+              type: "yeetAmount",
+              label: "Yeet ETH",
+              expectType: "number",
+            },
+            right: {
+              id: "yeetLoot",
+              type: "yeetLoot",
+            },
+          },
+        ],
       },
       {
         id: "message",
@@ -36,8 +53,8 @@ export const APP_FORM: Record<string, CustomFormLego> = {
       startTime: true,
       endTime: true,
       minTribute: true,
-      multiplier: true,
       members: true,
+      lootPerYeet: true,
     },
     log: true,
     tx: APP_TX.YEETER_SUMMON,
@@ -98,9 +115,10 @@ export const APP_FORM: Record<string, CustomFormLego> = {
               expectType: "number",
             },
             right: {
-              id: "multiplier",
+              id: "lootPerYeet",
               type: "lootPerYeet",
               label: "Loot per Minimum Tribute",
+              expectType: "number",
             },
           },
         ],

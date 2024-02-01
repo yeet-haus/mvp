@@ -54,6 +54,7 @@ export const DEFAULT_YEETER_VALUES = {
   isShares: false,
   feeRecipients: [],
   feeAmounts: [],
+  lootPerYeet: "100",
 };
 export const DEFAULT_SUMMON_VALUES = {
   votingPeriodInSeconds: 120,

@@ -14,9 +14,13 @@ export const Yeet = () => {
 
   const onFormComplete = (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    result: any
+    result: any,
+    txReceipt: any
   ) => {
-    navigate(`success/${result?.yeets[0]?.shares}`);
+    console.log("txReceipt", txReceipt);
+    navigate(
+      `success/${result?.yeets[0]?.shares}/${txReceipt.transactionHash}`
+    );
   };
 
   if (!shamanAddress) return null;
@@ -27,8 +31,8 @@ export const Yeet = () => {
       targetNetwork={daoChain}
       customFields={{ ...MolochFields, ...AppFieldLookup }}
       lifeCycleFns={{
-        onPollSuccess: (result) => {
-          onFormComplete(result);
+        onPollSuccess: (result, txReceipt) => {
+          onFormComplete(result, txReceipt);
         },
       }}
     />

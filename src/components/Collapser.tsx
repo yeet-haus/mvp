@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { RiArrowUpSLine, RiArrowDownSLine } from "react-icons/ri/index.js";
 
-import { Card, DataMd } from "@daohaus/ui";
+import { Card, DataLg, DataMd, ParMd } from "@daohaus/ui";
 
 export const CollapseContainer = styled(Card)`
   border: none;
@@ -48,7 +48,7 @@ export const Collapser = ({ title, content }: CollapserProps) => {
   return (
     <CollapseContainer>
       <TitleContainer onClick={handleToggle}>
-        {title && <DataMd> {title}</DataMd>}
+        {title && <ParMd> {title}</ParMd>}
 
         {open && (
           <div>

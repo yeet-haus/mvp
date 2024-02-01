@@ -1,6 +1,7 @@
-import { DataXl, DataXs, ParSm } from "@daohaus/ui";
-import { YeetsItem } from "../utils/types";
+import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
+import { DataXl, DataXs, ParXl } from "@daohaus/ui";
+import { YeetsItem } from "../utils/types";
 import {
   formatShortDateTimeFromSeconds,
   formatValueTo,
@@ -14,6 +15,13 @@ export const YeetListContainer = styled.div`
   align-items: flex-start;
   gap: 4rem;
   margin-top: 2rem;
+  min-height: 50rem;
+
+  .nada {
+    margin-top: 3rem;
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 export const YeetListItem = styled.div`
@@ -53,7 +61,9 @@ export const YeetList = ({ yeets }: { yeets: YeetsItem[] }) => {
                 </DataXl>
               </div>
               <div className="message">
-                <ParSm>{yeet.message}</ParSm>
+                <ReactMarkdown className="projectDetails">
+                  {yeet.message}
+                </ReactMarkdown>
                 <div className="date">
                   <DataXs>
                     {formatShortDateTimeFromSeconds(yeet.createdAt)}
@@ -63,6 +73,12 @@ export const YeetList = ({ yeets }: { yeets: YeetsItem[] }) => {
             </YeetListItem>
           );
         })}
+
+      {(!yeets || yeets.length < 1) && (
+        <div className="nada">
+          <ParXl>Where's the Yeets?</ParXl>
+        </div>
+      )}
     </YeetListContainer>
   );
 };

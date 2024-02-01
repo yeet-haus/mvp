@@ -6,12 +6,18 @@ import { APP_FORM } from "./forms";
 import { TestField } from "../components/customFields/fieldTest";
 import { MembersInput } from "../components/customFields/MembersInput";
 import { LootPerYeet } from "../components/customFields/LootPerYeet";
+import { YeetHelper } from "../components/customFields/YeetHelper";
+import { YeetLoot } from "../components/customFields/YeetLoot";
+import { YeetAmount } from "../components/customFields/YeetAmount";
 
 export const AppFieldLookup = {
   ...MolochFields,
   testField: TestField,
   membersInput: MembersInput,
   lootPerYeet: LootPerYeet,
+  yeetHelper: YeetHelper,
+  yeetLoot: YeetLoot,
+  yeetAmount: YeetAmount,
 };
 
 export type CustomFieldLego = FieldLegoBase<typeof AppFieldLookup>;
