@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { H2, SingleColumnLayout, LinkStyles, H1, ParLg } from "@daohaus/ui";
 
 import { ButtonRouterLink } from "../components/ButtonRouterLink";
+import { YeetH1 } from "../components/layout/Shared";
 
 const LinkBox = styled.div`
   display: flex;
@@ -17,12 +18,6 @@ const Contain = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-`;
-
-const StyledH1 = styled(H1)`
-  font-weight: 900;
-  font-size: 10rem;
-  line-height: 1;
 `;
 
 const StyledRouterLink = styled(RouterLink)`
@@ -39,7 +34,7 @@ export const Home = () => {
   return (
     <SingleColumnLayout>
       <Contain>
-        <StyledH1>YEETER IS A REVOLUTION IN WEB3 FUNDRAISING</StyledH1>
+        <YeetH1>YEETER IS A REVOLUTION IN WEB3 FUNDRAISING</YeetH1>
         <StyledRouterLink to="wtf">
           <StyledH2>WHAT THE ACTUAL FUCK?</StyledH2>
         </StyledRouterLink>

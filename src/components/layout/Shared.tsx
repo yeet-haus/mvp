@@ -1,5 +1,6 @@
-import { Card, widthQuery } from "@daohaus/ui";
+import { Card, H1, widthQuery } from "@daohaus/ui";
 import styled from "styled-components";
+import { deathBlack, jaundiceYellow, nipplePink } from "../../theme/colors";
 
 export const OverviewCard = styled(Card)`
   width: 64rem;
@@ -21,4 +22,12 @@ export const DataGrid = styled.div`
   div {
     padding: 2rem 0;
   }
+`;
+
+export const YeetH1 = styled(H1)`
+  font-size: 10rem;
+  font-weight: 900;
+  color: ${nipplePink.step1};
+  text-shadow: 5px 5px ${deathBlack.step1}, -5px -5px ${jaundiceYellow.step1};
+  line-height: 1;
 `;

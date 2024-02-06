@@ -8,6 +8,7 @@ import { assembleYeeterSummonerArgs } from "../../utils/summonTx";
 const StyledH4 = styled(H4)`
   font-weight: 900;
   font-size: 4rem;
+  color: ${({ theme }) => theme.link.color};
 `;
 
 export const HomeContainer = () => {
