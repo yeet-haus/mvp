@@ -10,11 +10,20 @@ export const OverviewCard = styled(Card)`
   @media ${widthQuery.md} {
     max-width: 100%;
     min-width: 0;
+    padding: 6rem 4.5rem 12rem 4.5rem;
   }
 `;
 
-export const FatOverviewCard = styled(OverviewCard)`
-  width: 74rem;
+export const FormOverview = styled.div`
+  background-color: ${({ theme }) => theme.card.bg};
+  border-radius: ${({ theme }) => theme.card.radius};
+  padding: 6rem 8rem 12rem 8rem;
+  margin-top: 5rem;
+  @media ${widthQuery.md} {
+    padding: 6rem 4.5rem 12rem 4.5rem;
+    max-width: 100%;
+    min-width: 0;
+  }
 `;
 
 export const DataGrid = styled.div`
@@ -34,4 +43,13 @@ export const YeetH1 = styled(H1)`
   color: ${nipplePink.step1};
   text-shadow: 5px 5px ${deathBlack.step1}, -5px -5px ${jaundiceYellow.step1};
   line-height: 1;
+  text-align: center;
+
+  @media ${widthQuery.md} {
+    font-size: 7rem;
+  }
+
+  @media ${widthQuery.xs} {
+    font-size: 5rem;
+  }
 `;
