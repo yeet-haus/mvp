@@ -5,6 +5,7 @@ import { DataMd, Link, ParXs, widthQuery } from "@daohaus/ui";
 import { useDaoMember } from "@daohaus/moloch-v3-hooks";
 import { YeeterMetadata } from "../utils/types";
 import { useMemo } from "react";
+import { deathBlack, nipplePink } from "../theme/colors";
 
 export const ButtonRow = styled.div`
   display: flex;
@@ -28,6 +29,21 @@ export const ButtonRow = styled.div`
 
 const BoldDataMd = styled(DataMd)`
   font-weight: 900;
+`;
+
+const ButtonLink = styled(Link)`
+  background-color: ${nipplePink.step1};
+  color: ${deathBlack.step1};
+  width: fit-content;
+  height: 4.8rem;
+
+  padding: 1.2rem;
+  border-radius: 200px;
+  border: 1px solid black;
+  font-size: ${({ theme }) => theme.font.size.sm};
+  &:hover {
+    background-color: ${nipplePink.step2};
+  }
 `;
 
 type LinkObj = {
@@ -76,9 +92,13 @@ export const ProfileButtons = ({
         {linkList &&
           linkList.map((linkObj: LinkObj) => {
             return (
-              <Link href={linkObj.url} type="external" key={linkObj.label}>
+              <ButtonLink
+                href={linkObj.url}
+                type="external"
+                key={linkObj.label}
+              >
                 {linkObj.label}
-              </Link>
+              </ButtonLink>
             );
           })}
 

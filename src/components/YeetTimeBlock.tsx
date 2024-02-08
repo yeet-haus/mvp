@@ -7,6 +7,7 @@ import {
 } from "@daohaus/utils";
 import { YeeterItem } from "../utils/types";
 import { calcDurationPerc } from "../utils/yeetDataHelpers";
+import { nipplePink } from "../theme/colors";
 
 const SectionContainer = styled.div`
   margin-top: 2rem;
@@ -68,7 +69,7 @@ export const YeetTimeBlock = ({ yeeter }: { yeeter: YeeterItem }) => {
         <div className="bar">
           <ProgressBar
             progressSection={[
-              { percentage: percentageComplete, color: "pink" },
+              { percentage: percentageComplete, color: nipplePink.step1 },
             ]}
             backgroundColor="black"
           />

@@ -5,6 +5,7 @@ export const ProgressVisualFull = styled.div<{ $backgroundColor: string }>`
   background-color: ${({ $backgroundColor }) => $backgroundColor};
   display: flex;
   height: 5rem;
+  border-radius: 20px;
 `;
 
 export const ProgressVisualPart = styled.div<{
@@ -15,6 +16,7 @@ export const ProgressVisualPart = styled.div<{
   background-color: ${({ $backgroundColor }) => $backgroundColor};
   /* Number of the seconds for complete animation */
   transition: width 2s;
+  border-radius: 19px;
 `;
 
 type ProgressProps = {
