@@ -19,7 +19,7 @@ export const YeeterStatusTag = ({
 
   if (isEnded || isFull) {
     return (
-      <Tag tagColor="green" fontSize={fontSize}>
+      <Tag tagColor="pink" fontSize={fontSize}>
         Yeet Complete
       </Tag>
     );

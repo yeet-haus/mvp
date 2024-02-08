@@ -14,6 +14,7 @@ import { YeetButton } from "./YeetButton";
 import { YeetList } from "./YeetList";
 import { useDHConnect } from "@daohaus/connect";
 import { YeetsItem } from "../utils/types";
+import { deathBlack } from "../theme/colors";
 
 const YeetsHeader = styled.div`
   width: 100%;
@@ -29,6 +30,10 @@ const YeetsHeader = styled.div`
 
   .dd {
     width: 13rem;
+  }
+
+  .yeetSelect {
+    box-shadow: 3px 3px ${deathBlack.step1};
   }
 `;
 
@@ -103,6 +108,7 @@ export const DaoOverview = ({
                     long={false}
                     value={yeetFilter}
                     onChange={handleSelect}
+                    className="yeetSelect"
                     options={[
                       {
                         name: "All Yeets",

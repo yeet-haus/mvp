@@ -4,6 +4,7 @@ import { H4 } from "@daohaus/ui";
 import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { assembleYeeterSummonerArgs } from "../../utils/summonTx";
+import { YeetH4 } from "./Shared";
 
 const StyledH4 = styled(H4)`
   font-weight: 900;
@@ -25,11 +26,11 @@ export const HomeContainer = () => {
       }}
     >
       <DHLayout
-        leftNav={<StyledH4>YEETER</StyledH4>}
+        leftNav={<YeetH4>YEETER</YeetH4>}
         pathname={location.pathname}
         navLinks={[
-          { label: "Explore", href: `/` },
-          { label: "Launch", href: `/launch` },
+          { label: "EXPLORE", href: `/` },
+          { label: "LAUNCH", href: `/launch` },
         ]}
       >
         <Outlet />

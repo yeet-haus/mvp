@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ButtonRouterLink } from "./ButtonRouterLink";
 import { DataSm, DataXs } from "@daohaus/ui";
 
 import { YeeterItem } from "../utils/types";
@@ -7,6 +6,7 @@ import {
   formatLootForMin,
   formatMinContribution,
 } from "../utils/yeetDataHelpers";
+import { YeetButtonRouterLink } from "./layout/Shared";
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -24,14 +24,14 @@ export const YeetButton = ({ yeeter }: { yeeter: YeeterItem }) => {
             Receive {formatLootForMin(yeeter)} loot tokens per{" "}
             {formatMinContribution(yeeter)} ETH contributed
           </DataSm>
-          <ButtonRouterLink
+          <YeetButtonRouterLink
             to="yeet"
             size="lg"
             fullWidth={true}
             // disabled={yeeter.isFull}
           >
             YEET!
-          </ButtonRouterLink>
+          </YeetButtonRouterLink>
           {yeeter.isFull && (
             <DataXs color="primary.step1">GOAL HAS BEEN REACHED!</DataXs>
           )}

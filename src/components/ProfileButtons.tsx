@@ -6,6 +6,7 @@ import { useDaoMember } from "@daohaus/moloch-v3-hooks";
 import { YeeterMetadata } from "../utils/types";
 import { useMemo } from "react";
 import { deathBlack, nipplePink } from "../theme/colors";
+import { YeetButtonRouterLink } from "./layout/Shared";
 
 export const ButtonRow = styled.div`
   display: flex;
@@ -41,6 +42,8 @@ const ButtonLink = styled(Link)`
   border-radius: 200px;
   border: 1px solid black;
   font-size: ${({ theme }) => theme.font.size.sm};
+  box-shadow: 3px 3px ${deathBlack.step1};
+
   &:hover {
     background-color: ${nipplePink.step2};
   }
@@ -111,9 +114,9 @@ export const ProfileButtons = ({
 
         {member && Number(member.shares) > 0 && (
           <div className="editLink">
-            <ButtonRouterLink to="update" variant="link" size="md">
+            <YeetButtonRouterLink to="update" size="sm">
               <ParXs color="primary">Edit Yeet Details</ParXs>
-            </ButtonRouterLink>
+            </YeetButtonRouterLink>
           </div>
         )}
       </ButtonRow>
