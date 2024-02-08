@@ -7,6 +7,7 @@ import { CurrentDaoProvider, useDaoData } from "@daohaus/moloch-v3-hooks";
 import { HeaderAvatar } from "../HeaderAvatar";
 import { CurrentYeeterProvider } from "../../contexts/CurrentYeeterContext";
 import { useYeeter } from "../../hooks/useYeeter";
+import { useEffect } from "react";
 
 export const DaoContainer = () => {
   const { proposalId, memberAddress, daoChain, daoId } = useParams<{
@@ -45,6 +46,17 @@ const Dao = ({
     daoId: daoId as string,
     daoChain: daoChain as string,
   });
+
+  useEffect(() => {
+    console.log("location", location);
+
+    if (location.pathname.match(/success/g)) {
+      console.log("POOOOOPIN");
+      document.body.classList.add("explosion");
+    } else {
+      document.body.classList.remove("explosion");
+    }
+  }, [location]);
 
   // TODO: get better shaman address
   const shamanAddress =
