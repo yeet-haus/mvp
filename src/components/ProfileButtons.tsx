@@ -89,6 +89,13 @@ export const ProfileButtons = ({
     <>
       <ButtonRow>
         <BoldDataMd>Project Links</BoldDataMd>
+        <ButtonLink
+          href={`https://admin.daohaus.club/#/molochv3/${daoChain}/${daoId}`}
+          type="external"
+          key={daoId}
+        >
+          DAO
+        </ButtonLink>
         {linkList &&
           linkList.map((linkObj: LinkObj) => {
             return (

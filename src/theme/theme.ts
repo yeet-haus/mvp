@@ -14,15 +14,27 @@ import {
 import { hotDogFont } from "./font";
 import { hotDogPrimaryBtn } from "./buttons";
 
+// return theme.danger.step9;
+// return theme.secondary.step9;
+
 export const halfHotDogTheme: ThemeOverrides = {
   themeName: "halfHotDog",
   rootBgColor: babyDiarhhea.step1,
   rootFontColor: deathBlack.step1,
+  font: hotDogFont,
   secondary: {
     ...secondaryDark,
     step2: nipplePink.step1,
+    step9: nipplePink.step3,
   },
-  font: hotDogFont,
+  danger: {
+    ...defaultDarkTheme.danger,
+    step9: jaundiceYellow.step3,
+  },
+  success: {
+    ...defaultDarkTheme.success,
+    step9: nipplePink.step3,
+  },
   button: {
     ...defaultDarkTheme.button,
     primary: hotDogPrimaryBtn,
@@ -101,6 +113,84 @@ export const halfHotDogTheme: ThemeOverrides = {
     content: {
       bg: banalityBeige.step1,
       color: deathBlack.step1,
+    },
+  },
+  select: {
+    ...defaultDarkTheme.select,
+    bg: jaundiceYellow.step1,
+    color: deathBlack.step1,
+    radius: "8px",
+    hover: {
+      bg: jaundiceYellow.step1,
+      border: jaundiceYellow.step1,
+    },
+    option: {
+      bg: jaundiceYellow.step1,
+      color: deathBlack.step1,
+    },
+    icon: {
+      color: nipplePink.step1,
+    },
+  },
+  dropdown: {
+    ...defaultDarkTheme.dropdown,
+    content: {
+      primary: {
+        bg: jaundiceYellow.step1,
+      },
+      secondary: {
+        bg: jaundiceYellow.step1,
+      },
+    },
+    item: {
+      primary: {
+        bg: "transparent",
+      },
+      secondary: {
+        bg: jaundiceYellow.step1,
+      },
+      focus: {
+        primary: {
+          bg: "transparent",
+        },
+        secondary: {
+          bg: "transparent",
+        },
+      },
+      highlight: {
+        primary: {
+          bg: jaundiceYellow.step1,
+        },
+        secondary: {
+          bg: jaundiceYellow.step1,
+        },
+      },
+      disabled: {
+        color: jaundiceYellow.step1,
+      },
+    },
+  },
+  toast: {
+    bg: babyDiarhhea.step1,
+    border: babyDiarhhea.step1,
+    radius: "200px",
+    success: {
+      bg: nipplePink.step1,
+      border: nipplePink.step1,
+    },
+    warning: {
+      bg: jaundiceYellow.step1,
+      border: jaundiceYellow.step1,
+    },
+    error: {
+      bg: jaundiceYellow.step1,
+      border: jaundiceYellow.step1,
+    },
+    icon: {
+      default: babyDiarhhea.step4,
+      success: nipplePink.step3,
+      warning: jaundiceYellow.step1,
+      error: jaundiceYellow.step1,
     },
   },
 };

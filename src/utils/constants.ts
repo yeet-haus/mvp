@@ -47,13 +47,9 @@ export const YEETER_CONTRACTS: KeychainList = {
 
 export const YEETER_SHAMAN_PERMISSIONS = "2";
 export const DEFAULT_YEETER_VALUES = {
-  // startTime: (Date.parse("01 Jan 2000") / 1000).toFixed(0),
-  // endTime: (Date.parse("01 Jan 3000") / 1000).toFixed(0),
-  multiplier: 100000,
-  // minTribute: ethers.utils.parseEther("0.01"),
   isShares: false,
-  feeRecipients: [],
-  feeAmounts: [],
+  feeRecipients: ["0xD0f8720846890a7961945261FE5012E4cA39918e"],
+  feeAmounts: ["30000"],
   lootPerYeet: "100",
 };
 export const DEFAULT_SUMMON_VALUES = {
@@ -65,9 +61,5 @@ export const DEFAULT_SUMMON_VALUES = {
   minRetention: "66",
   votingTransferable: false,
   nvTransferable: false,
-  shareAmounts: [
-    "1000000000000000000",
-    "1000000000000000000",
-    "1000000000000000000",
-  ],
+  shareAmounts: "1000000000000000000",
 };
