@@ -9,6 +9,16 @@ import { APP_FORM } from "../legos/forms";
 import { useYeeter } from "../hooks/useYeeter";
 import { useCurrentYeeter } from "../contexts/CurrentYeeterContext";
 import { ValidNetwork } from "@daohaus/keychain-utils";
+import styled from "styled-components";
+import { FatOverviewCard } from "../components/layout/Shared";
+
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  text-align: center;
+`;
 
 const UpdateSettings = () => {
   const { dao, refetch } = useDaoData();
@@ -48,17 +58,21 @@ const SettingsForm = ({
     navigate(`/molochV3/${daoChain}/${daoId}`);
   };
   return (
-    <FormBuilder
-      defaultValues={metadata}
-      form={APP_FORM.METADATA_SETTINGS}
-      customFields={AppFieldLookup}
-      targetNetwork={daoChain}
-      lifeCycleFns={{
-        onPollSuccess: () => {
-          onFormComplete();
-        },
-      }}
-    />
+    <PageContainer>
+      <FatOverviewCard>
+        <FormBuilder
+          defaultValues={metadata}
+          form={APP_FORM.METADATA_SETTINGS}
+          customFields={AppFieldLookup}
+          targetNetwork={daoChain}
+          lifeCycleFns={{
+            onPollSuccess: () => {
+              onFormComplete();
+            },
+          }}
+        />
+      </FatOverviewCard>
+    </PageContainer>
   );
 };
 

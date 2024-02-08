@@ -27,6 +27,7 @@ export const halfHotDogTheme: ThemeOverrides = {
     ...defaultDarkTheme.button,
     primary: hotDogPrimaryBtn,
     secondary: hotDogPrimaryBtn,
+    radius: "200px",
   },
   card: {
     ...defaultDarkTheme.card,

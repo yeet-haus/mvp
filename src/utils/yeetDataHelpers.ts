@@ -2,7 +2,9 @@ import { formatValueTo, fromWei } from "@daohaus/utils";
 import { YeeterItem } from "./types";
 
 export const calcProgressPerc = (a: string, b: string) => {
-  const div = Number(a) / Number(b);
+  let div = Number(a) / Number(b);
+
+  if (div > 0 && div < 0.04) div = 0.04;
   return Number(div) * 100;
 };
 
