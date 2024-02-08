@@ -63,7 +63,7 @@ const Dao = ({
     <DHLayout
       pathname={location.pathname}
       navLinks={[
-        { label: "Home", href: `/` },
+        { label: "Explore", href: `/` },
         { label: "Project", href: `/${routePath}` },
       ]}
       leftNav={

@@ -4,6 +4,7 @@ import { Button, H1, Link, SingleColumnLayout } from "@daohaus/ui";
 import { useMemo } from "react";
 import { useParams, Link as RouterLink } from "react-router-dom";
 import styled from "styled-components";
+import { YeetH1 } from "../components/layout/Shared";
 
 const Contain = styled.div`
   text-align: center;
@@ -13,10 +14,8 @@ const Contain = styled.div`
   gap: 3rem;
 `;
 
-const StyledH1 = styled(H1)`
-  font-weight: 900;
-  font-size: 10rem;
-  line-height: 1;
+const StyledYeetH1 = styled(YeetH1)`
+  margin-top: 3rem;
 `;
 
 const ButtonContainer = styled.div`
@@ -59,7 +58,7 @@ export const Success = () => {
   return (
     <SingleColumnLayout>
       <Contain>
-        <StyledH1>AAAAAH SHIIIIIIIIT YOU MADE A YEETER!</StyledH1>
+        <StyledYeetH1>AAAAAH SHIIIIIIIIT YOU MADE A YEETER!</StyledYeetH1>
         <ButtonContainer>
           <Button color="primary" fullWidth>
             <LinkButton to={`/molochV3/${chainId}/${daoId}/`}>

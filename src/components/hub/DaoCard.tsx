@@ -8,6 +8,7 @@ import {
   Bold,
   ParLg,
   ParMd,
+  ParXl,
   ProfileAvatar,
   Tag,
   Tooltip,
@@ -24,15 +25,15 @@ const StyledDaoCard = styled.div`
   background-color: ${(props) => props.theme.secondary.step2};
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   width: 100%;
   max-width: 34rem;
   min-width: 26rem;
-  border: 1px solid ${(props) => props.theme.secondary.step5};
+  border: 1px solid ${(props) => props.theme.secondary.step2};
   padding: 2.4rem;
   border-radius: ${(props) => props.theme.card.radius};
   .top-box {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 1.3rem;
   }
 
@@ -42,18 +43,15 @@ const StyledDaoCard = styled.div`
   .stats-box {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2.4rem;
-    p {
-      margin-bottom: 0.6rem;
-    }
   }
   .tag-box {
     font-size: 1.4rem;
-    margin-bottom: 2.4rem;
-    div {
-      margin-right: 1.5rem;
-    }
   }
+`;
+
+const FatParLg = styled(ParXl)`
+  font-weight: 800;
+  font-size: 3rem;
 `;
 
 export const DaoCard = ({
@@ -77,21 +75,21 @@ export const DaoCard = ({
           />
         </div>
       </div>
-      <ParLg className="dao-title">
-        {dao?.name ? charLimit(dao.name, 21) : charLimit(yeeter.id, 21)}{" "}
-      </ParLg>
+      <FatParLg className="dao-title">
+        {dao?.name ? charLimit(dao.name, 14) : charLimit(yeeter.id, 14)}{" "}
+      </FatParLg>
       <div className="stats-box">
-        <ParMd>
+        <ParLg>
           <Bold>{toWholeUnits(yeeter.balance)} Eth Raised</Bold>{" "}
-        </ParMd>
+        </ParLg>
       </div>
       <div className="tag-box">
         <YeeterStatusTag yeeter={yeeter} fontSize="sm" />
-        <Tag tagColor="red">{`on ${getNetworkName(chainId)}`}</Tag>
+        {/* <Tag tagColor="red">{`on ${getNetworkName(chainId)}`}</Tag> */}
       </div>
       <ButtonRouterLink
+        size="lg"
         color="secondary"
-        fullWidth
         to={`/molochv3/${chainId}/${yeeter.dao.id}`}
       >
         Go

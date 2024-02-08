@@ -5,7 +5,6 @@ import { FIELD } from "@daohaus/moloch-v3-legos";
 export const APP_FORM: Record<string, CustomFormLego> = {
   YEET_FORM: {
     id: "YEET",
-    title: "YEET",
     requiredFields: {
       amount: true,
     },
@@ -46,7 +45,6 @@ export const APP_FORM: Record<string, CustomFormLego> = {
   },
   SUMMON_YEETER: {
     id: "SUMMON_YEETER",
-    title: "NEW YEET",
     requiredFields: {
       daoName: true,
       goal: true,

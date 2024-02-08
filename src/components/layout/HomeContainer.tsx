@@ -8,6 +8,7 @@ import { assembleYeeterSummonerArgs } from "../../utils/summonTx";
 const StyledH4 = styled(H4)`
   font-weight: 900;
   font-size: 4rem;
+  color: ${({ theme }) => theme.link.color};
 `;
 
 export const HomeContainer = () => {
@@ -27,10 +28,8 @@ export const HomeContainer = () => {
         leftNav={<StyledH4>YEETER</StyledH4>}
         pathname={location.pathname}
         navLinks={[
-          { label: "Home", href: `/` },
-          { label: "Explore", href: `/explore` },
+          { label: "Explore", href: `/` },
           { label: "Launch", href: `/launch` },
-          { label: "WTF", href: `/wtf` },
         ]}
       >
         <Outlet />
