@@ -1,25 +1,13 @@
 import styled from "styled-components";
 
-import { charLimit, readableNumbers, toWholeUnits } from "@daohaus/utils";
-import { getNetworkName } from "@daohaus/keychain-utils";
-import { MolochV3Membership } from "@daohaus/utils";
-import {
-  Badge,
-  Bold,
-  ParLg,
-  ParMd,
-  ParXl,
-  ProfileAvatar,
-  Tag,
-  Tooltip,
-} from "@daohaus/ui";
-import { ButtonRouterLink } from "../ButtonRouterLink";
-import { ListDaosQueryResDaos } from "@daohaus/moloch-v3-data";
-import { useDHConnect } from "@daohaus/connect";
+import { charLimit, toWholeUnits } from "@daohaus/utils";
+import { Bold, ParLg, ParXl, ProfileAvatar } from "@daohaus/ui";
 import { YeeterItem } from "../../utils/types";
 import { useDaoData } from "@daohaus/moloch-v3-hooks";
 import { useYeeter } from "../../hooks/useYeeter";
 import { YeeterStatusTag } from "../YeeterStatusTag";
+import { deathBlack, jaundiceYellow } from "../../theme/colors";
+import { YeetButtonRouterLink } from "../layout/Shared";
 
 const StyledDaoCard = styled.div`
   background-color: ${(props) => props.theme.secondary.step2};
@@ -33,6 +21,7 @@ const StyledDaoCard = styled.div`
   border: 1px solid ${(props) => props.theme.secondary.step2};
   padding: 2.4rem;
   border-radius: ${(props) => props.theme.card.radius};
+  box-shadow: 5px 5px ${deathBlack.step1}, -5px -5px ${jaundiceYellow.step1};
   .top-box {
     margin-bottom: 1.3rem;
   }
@@ -85,15 +74,14 @@ export const DaoCard = ({
       </div>
       <div className="tag-box">
         <YeeterStatusTag yeeter={yeeter} fontSize="sm" />
-        {/* <Tag tagColor="red">{`on ${getNetworkName(chainId)}`}</Tag> */}
       </div>
-      <ButtonRouterLink
+      <YeetButtonRouterLink
         size="lg"
         color="secondary"
         to={`/molochv3/${chainId}/${yeeter.dao.id}`}
       >
         Go
-      </ButtonRouterLink>
+      </YeetButtonRouterLink>
     </StyledDaoCard>
   );
 };

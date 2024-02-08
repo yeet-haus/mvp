@@ -1,5 +1,6 @@
 import { H4, ProfileAvatar } from "@daohaus/ui";
 import styled from "styled-components";
+import { YeetH4 } from "./layout/Shared";
 
 const DaoNavContainer = styled.div`
   display: flex;
@@ -12,11 +13,6 @@ const DaoProfileAvatar = styled(ProfileAvatar)`
   height: 4.8rem;
 `;
 
-const StyledH4 = styled(H4)`
-  font-weight: 900;
-  color: ${({ theme }) => theme.link.color};
-`;
-
 type HAvatar = {
   name: string;
   address: string;
@@ -26,7 +22,7 @@ export const HeaderAvatar = ({ name, imgUrl, address }: HAvatar) => {
   return (
     <DaoNavContainer>
       <DaoProfileAvatar image={imgUrl} address={address} />
-      <StyledH4>{name}</StyledH4>
+      <YeetH4>{name}</YeetH4>
     </DaoNavContainer>
   );
 };
