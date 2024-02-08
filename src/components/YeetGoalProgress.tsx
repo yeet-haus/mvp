@@ -4,6 +4,7 @@ import { ProgressBar } from "./ProgressBar";
 import { formatValueTo, fromWei } from "@daohaus/utils";
 import { YeeterItem } from "../utils/types";
 import { calcProgressPerc } from "../utils/yeetDataHelpers";
+import { jaundiceYellow } from "../theme/colors";
 
 const ProgressRow = styled.div`
   display: flex;
@@ -48,7 +49,7 @@ export const YeetGoalProgress = ({ yeeter }: { yeeter: YeeterItem }) => {
           <div className="bar">
             <ProgressBar
               progressSection={[
-                { percentage: percentageComplete, color: "#FEDB1D" },
+                { percentage: percentageComplete, color: jaundiceYellow.step1 },
               ]}
               backgroundColor="black"
             />

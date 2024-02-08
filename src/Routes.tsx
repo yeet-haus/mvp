@@ -10,7 +10,6 @@ import { ReactSetter } from "@daohaus/utils";
 import { MULTI_DAO_ROUTER } from "@daohaus/moloch-v3-hooks";
 
 import Dao from "./pages/Dao";
-import { Home } from "./pages/Home";
 import { TARGET_DAO } from "./targetDao";
 import { HomeContainer } from "./components/layout/HomeContainer";
 import { DaoContainer } from "./components/layout/DaoContainer";
@@ -18,7 +17,6 @@ import UpdateSettings from "./pages/UpdateSettings";
 import { Explore } from "./pages/Explore";
 import { Launch } from "./pages/Launch";
 import { Yeet } from "./pages/Yeet";
-import { Wtf } from "./pages/Wtf";
 import { Success } from "./pages/Success";
 import { YeetSuccess } from "./pages/YeetSuccess";
 
@@ -45,10 +43,8 @@ export const Routes = ({
   return (
     <Router>
       <Route path="/" element={<HomeContainer />}>
-        <Route index element={<Home />} />
-        <Route path="explore" element={<Explore />} />
+        <Route index element={<Explore />} />
         <Route path="launch" element={<Launch />} />
-        <Route path="wtf" element={<Wtf />} />
         <Route path={`success/:daoId/:txHash`} element={<Success />} />
       </Route>
       <Route path={MULTI_DAO_ROUTER} element={<DaoContainer />}>
