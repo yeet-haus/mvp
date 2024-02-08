@@ -3,3 +3,10 @@
 #root {
   margin: 0 auto;
 }
+
+.explosion {
+  background: url("assets/colorexplosion.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100rem;
+}

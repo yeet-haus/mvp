@@ -15,9 +15,8 @@ const StyledDaoCard = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  width: 100%;
-  max-width: 34rem;
-  min-width: 26rem;
+  width: 34rem;
+  height: 34rem;
   border: 1px solid ${(props) => props.theme.secondary.step2};
   padding: 2.4rem;
   border-radius: ${(props) => props.theme.card.radius};
