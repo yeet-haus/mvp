@@ -75,11 +75,11 @@ export const YeetSuccess = () => {
             </LinkButton>
           </Button>
           <Button color="secondary" fullWidth>
-            <LinkButton
-              to={`https://admin.daohaus.club/#/molochv3/${chainId}/${daoId}`}
+            <ExternalLinkButton
+              href={`https://admin.daohaus.club/#/molochv3/${chainId}/${daoId}`}
             >
               Look at the Project's DAO
-            </LinkButton>
+            </ExternalLinkButton>
           </Button>
           <Button color="secondary" fullWidth>
             <ExternalLinkButton href={explorerLink}>

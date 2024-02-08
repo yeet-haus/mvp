@@ -28,11 +28,13 @@ export const YeetButton = ({ yeeter }: { yeeter: YeeterItem }) => {
             to="yeet"
             size="lg"
             fullWidth={true}
-            disabled={yeeter.isFull}
+            // disabled={yeeter.isFull}
           >
             YEET!
           </ButtonRouterLink>
-          {yeeter.isFull && <DataXs color="green">Raise is complete</DataXs>}
+          {yeeter.isFull && (
+            <DataXs color="primary.step1">GOAL HAS BEEN REACHED!</DataXs>
+          )}
         </>
       )}
     </ButtonContainer>

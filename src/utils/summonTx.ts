@@ -103,11 +103,14 @@ const assembleShareTokenParams = ({
   const yeetName = formValues["daoName"];
   const tokenName = `v${yeetName}`;
   const tokenSymbol = `v${yeetName}`;
-  // const tokenName = formValues["shareTokenName"];
-  // const tokenSymbol = formValues["shareTokenSymbol"];
   const shareSingleton = CONTRACT_KEYCHAINS["SHARES_SINGLETON"][chainId];
 
-  const shareHolders = formValues["members"];
+  const shareHolders: string[] = formValues["members"] as string[];
+
+  console.log("shareHolders", shareHolders);
+  const shareAmounts = shareHolders.map(
+    (s: string) => DEFAULT_SUMMON_VALUES.shareAmounts
+  );
 
   if (
     !isString(yeetName) ||
@@ -126,8 +129,7 @@ const assembleShareTokenParams = ({
 
   const shareParams = encodeValues(
     ["string", "string", "address[]", "uint256[]"],
-    // @ts-expect-error
-    [tokenName, tokenSymbol, shareHolders, DEFAULT_SUMMON_VALUES.shareAmounts]
+    [tokenName, tokenSymbol, shareHolders, shareAmounts]
   );
 
   return encodeValues(["address", "bytes"], [shareSingleton, shareParams]);
@@ -145,8 +147,7 @@ const assembleShamanParams = ({
   const endTime = formValues["endTime"];
   const goal = formValues["goal"];
   const minTribute = formValues["minTribute"];
-  // const multiplier = formValues["multiplier"];
-  const multiplier = DEFAULT_YEETER_VALUES.multiplier;
+  const multiplier = formValues["multiplier"];
   const isShares = DEFAULT_YEETER_VALUES.isShares;
   const feeRecipients = DEFAULT_YEETER_VALUES.feeRecipients;
   const feeAmounts = DEFAULT_YEETER_VALUES.feeAmounts;
@@ -205,7 +206,6 @@ const assembleInitActions = ({
   const { POSTER } = handleKeychains(chainId);
 
   return [
-    // tokenConfigTX(DEFAULT_SUMMON_VALUES),
     governanceConfigTX(DEFAULT_SUMMON_VALUES),
     metadataConfigTX(formValues, POSTER),
   ];

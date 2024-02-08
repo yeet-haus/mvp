@@ -28,11 +28,12 @@ const ProfileContainer = styled.div`
 
 const ProfileRow = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   align-items: center;
   gap: 1rem;
-  width: 100%;
+  /* width: 100%; */
   @media ${widthQuery.md} {
     flex-direction: column;
     justify-content: center;
@@ -44,12 +45,8 @@ const YeetName = styled(H3)`
   font-size: 4rem;
   font-weight: 900;
   line-height: 5rem;
-  width: 65%;
+  width: 100%;
   word-wrap: break-word;
-
-  @media ${widthQuery.md} {
-    width: 100%;
-  }
 `;
 
 const DetailsContainer = styled.div`

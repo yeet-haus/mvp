@@ -8,15 +8,7 @@ import { AppFieldLookup } from "../legos/legoConfig";
 import { useCurrentDao } from "@daohaus/moloch-v3-hooks";
 import { useCurrentYeeter } from "../contexts/CurrentYeeterContext";
 
-import { FatOverviewCard, YeetH1 } from "../components/layout/Shared";
-
-const PageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 3rem;
-  text-align: center;
-`;
+import { FormOverview, YeetH1 } from "../components/layout/Shared";
 
 export const Yeet = () => {
   const navigate = useNavigate();
@@ -37,20 +29,18 @@ export const Yeet = () => {
   if (!shamanAddress) return null;
 
   return (
-    <PageContainer>
-      <FatOverviewCard>
-        <YeetH1>YEET!</YeetH1>
-        <FormBuilder
-          form={APP_FORM.YEET_FORM}
-          targetNetwork={daoChain}
-          customFields={{ ...MolochFields, ...AppFieldLookup }}
-          lifeCycleFns={{
-            onPollSuccess: (result, txReceipt) => {
-              onFormComplete(result, txReceipt);
-            },
-          }}
-        />
-      </FatOverviewCard>
-    </PageContainer>
+    <FormOverview>
+      <YeetH1>YEET!</YeetH1>
+      <FormBuilder
+        form={APP_FORM.YEET_FORM}
+        targetNetwork={daoChain}
+        customFields={{ ...MolochFields, ...AppFieldLookup }}
+        lifeCycleFns={{
+          onPollSuccess: (result, txReceipt) => {
+            onFormComplete(result, txReceipt);
+          },
+        }}
+      />
+    </FormOverview>
   );
 };
