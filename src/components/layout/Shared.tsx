@@ -1,12 +1,14 @@
-import { Card, H1, widthQuery } from "@daohaus/ui";
+import { Card, H1, H4, widthQuery } from "@daohaus/ui";
 import styled from "styled-components";
 import { deathBlack, jaundiceYellow, nipplePink } from "../../theme/colors";
+import { ButtonRouterLink } from "../ButtonRouterLink";
 
 export const OverviewCard = styled(Card)`
   width: 64rem;
   padding: 6rem 8rem 12rem 8rem;
   border: none;
   margin-bottom: 3.4rem;
+  box-shadow: 5px 5px ${deathBlack.step1}, -5px -5px ${jaundiceYellow.step1};
   @media ${widthQuery.md} {
     max-width: 100%;
     min-width: 0;
@@ -19,6 +21,12 @@ export const FormOverview = styled.div`
   border-radius: ${({ theme }) => theme.card.radius};
   padding: 6rem 8rem 12rem 8rem;
   margin-top: 5rem;
+  box-shadow: 5px 5px ${deathBlack.step1}, -5px -5px ${jaundiceYellow.step1};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 74rem;
+
   @media ${widthQuery.md} {
     padding: 6rem 4.5rem 12rem 4.5rem;
     max-width: 100%;
@@ -52,4 +60,15 @@ export const YeetH1 = styled(H1)`
   @media ${widthQuery.xs} {
     font-size: 5rem;
   }
+`;
+
+export const YeetH4 = styled(H4)`
+  font-weight: 900;
+  font-size: 4rem;
+  color: ${({ theme }) => theme.link.color};
+  text-shadow: 5px 5px ${deathBlack.step1};
+`;
+
+export const YeetButtonRouterLink = styled(ButtonRouterLink)`
+  box-shadow: 5px 5px ${deathBlack.step1};
 `;

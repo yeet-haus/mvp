@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { babyDiarhhea, deathBlack, nipplePink } from "../theme/colors";
 
 export const ProgressVisualFull = styled.div<{ $backgroundColor: string }>`
   background-color: ${({ $backgroundColor }) => $backgroundColor};
   display: flex;
   height: 5rem;
   border-radius: 20px;
+  box-shadow: 3px 3px ${babyDiarhhea.step1};
 `;
 
 export const ProgressVisualPart = styled.div<{
