@@ -14,12 +14,6 @@ const Contain = styled.div`
   gap: 3rem;
 `;
 
-const StyledH1 = styled(H1)`
-  font-weight: 900;
-  font-size: 10rem;
-  line-height: 1;
-`;
-
 const StyledYeetH1 = styled(YeetH1)`
   margin-top: 3rem;
 `;

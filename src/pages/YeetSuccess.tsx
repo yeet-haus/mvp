@@ -5,6 +5,7 @@ import { fromWei } from "@daohaus/utils";
 import { useMemo } from "react";
 import { Link as RouterLink, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { YeetH1 } from "../components/layout/Shared";
 
 const Contain = styled.div`
   text-align: center;
@@ -12,12 +13,6 @@ const Contain = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-`;
-
-const StyledH1 = styled(H1)`
-  font-weight: 900;
-  font-size: 10rem;
-  line-height: 1;
 `;
 
 const ButtonContainer = styled.div`
@@ -43,6 +38,10 @@ const ExternalLinkButton = styled(Link)`
   }
 `;
 
+const StyledYeetH1 = styled(YeetH1)`
+  margin-top: 3rem;
+`;
+
 export const YeetSuccess = () => {
   const { daoId, lootReceived, txHash } = useParams();
   const { chainId } = useDHConnect();
@@ -66,7 +65,9 @@ export const YeetSuccess = () => {
   return (
     <SingleColumnLayout>
       <Contain>
-        <StyledH1>SOMEONE YEETED & RECEIVED {formattedLoot} LOOT!</StyledH1>
+        <StyledYeetH1>
+          SOMEONE YEETED & RECEIVED {formattedLoot} LOOT!
+        </StyledYeetH1>
         <ButtonContainer>
           <Button color="secondary" fullWidth>
             <LinkButton to={`/molochV3/${chainId}/${daoId}/`}>
