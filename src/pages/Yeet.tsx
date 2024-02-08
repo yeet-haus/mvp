@@ -8,13 +8,14 @@ import { AppFieldLookup } from "../legos/legoConfig";
 import { useCurrentDao } from "@daohaus/moloch-v3-hooks";
 import { useCurrentYeeter } from "../contexts/CurrentYeeterContext";
 
-import { OverviewCard, YeetH1 } from "../components/layout/Shared";
+import { FatOverviewCard, YeetH1 } from "../components/layout/Shared";
 
 const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 3rem;
+  text-align: center;
 `;
 
 export const Yeet = () => {
@@ -37,7 +38,7 @@ export const Yeet = () => {
 
   return (
     <PageContainer>
-      <OverviewCard>
+      <FatOverviewCard>
         <YeetH1>YEET!</YeetH1>
         <FormBuilder
           form={APP_FORM.YEET_FORM}
@@ -49,7 +50,7 @@ export const Yeet = () => {
             },
           }}
         />
-      </OverviewCard>
+      </FatOverviewCard>
     </PageContainer>
   );
 };

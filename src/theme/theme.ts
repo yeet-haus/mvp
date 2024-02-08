@@ -14,16 +14,6 @@ import {
 import { hotDogFont } from "./font";
 import { hotDogPrimaryBtn } from "./buttons";
 
-// const yeeterFontFamily = {
-//     body: `'Major Mono Display', monospace`,
-//     header: `'Major Mono Display', monospace`,
-//     data: `'Ubuntu Mono', monospace`,
-//   };
-
-// export const customThemeProperties = {
-//   bigRadiusDivPadding:
-// }
-
 export const halfHotDogTheme: ThemeOverrides = {
   themeName: "halfHotDog",
   rootBgColor: babyDiarhhea.step1,
@@ -80,7 +70,6 @@ export const halfHotDogTheme: ThemeOverrides = {
     radius: "50px",
     transition: "0.2s all ease-in-out",
   },
-
   input: {
     ...defaultDarkTheme.input,
     bg: banalityBeige.step1,
@@ -101,6 +90,16 @@ export const halfHotDogTheme: ThemeOverrides = {
     hover: {
       bg: banalityBeige.step2,
       border: deathBlack.step1,
+    },
+  },
+  dialog: {
+    radius: "4px",
+    overlay: {
+      bg: banalityBeige.step1,
+    },
+    content: {
+      bg: banalityBeige.step1,
+      color: deathBlack.step1,
     },
   },
 };

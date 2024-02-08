@@ -20,7 +20,6 @@ const ControlBarBox = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 3rem;
   flex-wrap: wrap;
   gap: 1.6rem;
   .list-toggle {
@@ -29,10 +28,6 @@ const ControlBarBox = styled.div`
   @media ${widthQuery.sm} {
     flex-direction: column;
   }
-`;
-
-const StyledH1 = styled(H1)`
-  font-weight: 900;
 `;
 
 export const ListActions = ({
@@ -57,7 +52,6 @@ export const ListActions = ({
           noun={noun}
           full={isMobile}
         /> */}
-        <StyledH1>YEETS on {getNetworkName(chainId)}</StyledH1>
       </ControlBarBox>
       {children}
     </SingleColumnLayout>

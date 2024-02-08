@@ -4,13 +4,17 @@ import { deathBlack, jaundiceYellow, nipplePink } from "../../theme/colors";
 
 export const OverviewCard = styled(Card)`
   width: 64rem;
-  padding: 2rem;
+  padding: 6rem 8rem 12rem 8rem;
   border: none;
   margin-bottom: 3.4rem;
   @media ${widthQuery.md} {
     max-width: 100%;
     min-width: 0;
   }
+`;
+
+export const FatOverviewCard = styled(OverviewCard)`
+  width: 74rem;
 `;
 
 export const DataGrid = styled.div`

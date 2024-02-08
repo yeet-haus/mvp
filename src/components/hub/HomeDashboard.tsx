@@ -68,6 +68,6 @@ const LoadingContainer = ({ isMobile }: { isMobile: boolean }) => (
 );
 const NoDaosFound = () => (
   <CenterFrame>
-    <H2>No Daos Found</H2>
+    <H2>No Yeeters Found</H2>
   </CenterFrame>
 );

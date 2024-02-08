@@ -28,10 +28,8 @@ export const HomeContainer = () => {
         leftNav={<StyledH4>YEETER</StyledH4>}
         pathname={location.pathname}
         navLinks={[
-          { label: "Home", href: `/` },
-          { label: "Explore", href: `/explore` },
+          { label: "Explore", href: `/` },
           { label: "Launch", href: `/launch` },
-          { label: "WTF", href: `/wtf` },
         ]}
       >
         <Outlet />
