@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ValidNetwork } from "@daohaus/keychain-utils";
-import { ButtonRouterLink } from "./ButtonRouterLink";
 import { DataMd, Link, ParXs, widthQuery } from "@daohaus/ui";
 import { useDaoMember } from "@daohaus/moloch-v3-hooks";
 import { YeeterMetadata } from "../utils/types";
@@ -74,7 +73,7 @@ export const ProfileButtons = ({
   const linkList = useMemo(() => {
     if (!metadata || !metadata.links) return;
 
-    const validLinks = [];
+    const validLinks: LinkObj[] = [];
 
     return metadata.links.reduce(
       (links: LinkObj[], link: string): LinkObj[] => {
