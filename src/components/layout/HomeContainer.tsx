@@ -17,8 +17,6 @@ export const HomeContainer = () => {
   const { publicClient, address, chainId } = useDHConnect();
 
   useEffect(() => {
-    console.log("location", location);
-
     if (location.pathname.match(/success/g)) {
       document.body.classList.add("explosion");
     } else {

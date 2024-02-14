@@ -70,7 +70,6 @@ export const APP_FORM: Record<string, CustomFormLego> = {
         placeholder: "Yeet Yeet",
         info: "Input member list with member address on each line.",
       },
-
       {
         id: "times",
         type: "splitColumn",
@@ -79,13 +78,13 @@ export const APP_FORM: Record<string, CustomFormLego> = {
             rowId: "row1",
             left: {
               id: "startTime",
-              type: "epochDatePicker",
+              type: "yeetDate",
               label: "START TIME",
               expectType: "number",
             },
             right: {
               id: "endTime",
-              type: "epochDatePicker",
+              type: "yeetDate",
               label: "END TIME",
               expectType: "number",
             },
@@ -111,15 +110,31 @@ export const APP_FORM: Record<string, CustomFormLego> = {
               label: "MINIMUM YEET (ETH)",
               placeholder: "0.01",
               expectType: "number",
+              rules: {
+                min: {
+                  value: 10000000000000,
+                  message: "Must be .00001 or more",
+                },
+              },
             },
             right: {
               id: "lootPerYeet",
               type: "lootPerYeet",
               label: "LOOT PER MINIMUM YEET",
               expectType: "number",
+              rules: {
+                min: {
+                  value: 1,
+                  message: "Must be 1 or more",
+                },
+              },
             },
           },
         ],
+      },
+      {
+        id: "warning",
+        type: "dateWarning",
       },
     ],
   },
