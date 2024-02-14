@@ -31,6 +31,10 @@ export const FormOverview = styled.div`
     padding: 6rem 4.5rem 12rem 4.5rem;
     max-width: 100%;
     min-width: 0;
+
+    div {
+      width: unset;
+    }
   }
 `;
 
