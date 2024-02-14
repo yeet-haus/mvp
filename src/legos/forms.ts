@@ -14,7 +14,7 @@ export const APP_FORM: Record<string, CustomFormLego> = {
       {
         id: "yeetHelper",
         type: "yeetHelper",
-        label: "Get",
+        label: "GET",
       },
       {
         id: "yeetSplit",
@@ -25,7 +25,7 @@ export const APP_FORM: Record<string, CustomFormLego> = {
             left: {
               id: "amount",
               type: "yeetAmount",
-              label: "Yeet ETH",
+              label: "YEET ETH",
               expectType: "number",
             },
             right: {
@@ -38,7 +38,7 @@ export const APP_FORM: Record<string, CustomFormLego> = {
       {
         id: "message",
         type: "markdownField",
-        label: "Message",
+        label: "MESSAGE",
         placeholder: "yeet yeet yeet",
       },
     ],
@@ -60,17 +60,16 @@ export const APP_FORM: Record<string, CustomFormLego> = {
       {
         id: "daoName",
         type: "input",
-        label: "Name",
+        label: "NAME",
         placeholder: "Yeet Yeet",
       },
       {
         id: "members",
         type: "membersInput",
-        label: "Team Members",
+        label: "TEAM MEMBERS",
         placeholder: "Yeet Yeet",
         info: "Input member list with member address on each line.",
       },
-
       {
         id: "times",
         type: "splitColumn",
@@ -79,14 +78,14 @@ export const APP_FORM: Record<string, CustomFormLego> = {
             rowId: "row1",
             left: {
               id: "startTime",
-              type: "epochDatePicker",
-              label: "Start Time",
+              type: "yeetDate",
+              label: "START TIME",
               expectType: "number",
             },
             right: {
               id: "endTime",
-              type: "epochDatePicker",
-              label: "End Time",
+              type: "yeetDate",
+              label: "END TIME",
               expectType: "number",
             },
           },
@@ -95,7 +94,7 @@ export const APP_FORM: Record<string, CustomFormLego> = {
       {
         id: "goal",
         type: "toWeiInput",
-        label: "Fundraising Goal (ETH)",
+        label: "FUNDRAISING GOAL (ETH)",
         placeholder: "69,420",
         expectType: "number",
       },
@@ -108,51 +107,66 @@ export const APP_FORM: Record<string, CustomFormLego> = {
             left: {
               id: "minTribute",
               type: "toWeiInput",
-              label: "Minimum Tribute (ETH)",
+              label: "MINIMUM YEET (ETH)",
               placeholder: "0.01",
               expectType: "number",
+              rules: {
+                min: {
+                  value: 10000000000000,
+                  message: "Must be .00001 or more",
+                },
+              },
             },
             right: {
               id: "lootPerYeet",
               type: "lootPerYeet",
-              label: "Loot per Minimum Tribute",
+              label: "LOOT PER MINIMUM YEET",
               expectType: "number",
+              rules: {
+                min: {
+                  value: 1,
+                  message: "Must be 1 or more",
+                },
+              },
             },
           },
         ],
+      },
+      {
+        id: "warning",
+        type: "dateWarning",
       },
     ],
   },
   METADATA_SETTINGS: {
     id: "METADATA_SETTINGS",
-    title: "Update Yeet Details",
     tx: APP_TX.UPDATE_METADATA_SETTINGS,
     fields: [
       {
         ...FIELD.DESCRIPTION,
         id: "projectDetails",
-        label: "Project Details",
+        label: "PROJECT DETAILS",
       },
       {
         ...FIELD.DESCRIPTION,
         id: "missionStatement",
-        label: "Mission Statement",
+        label: "MISSION STATEMENT",
       },
-      { ...FIELD.LINK, id: "icon", label: "Campaign Icon" },
+      { ...FIELD.LINK, id: "icon", label: "PROJECT ICON" },
       {
         id: "links",
         type: "formSegment",
-        title: "Add links to important content for your DAO",
+        title: "ADD LINKS",
         fields: [
-          { ...FIELD.LINK, id: "discord", label: "Discord" },
-          { ...FIELD.METADATA_LINK, id: "github", label: "Github" },
-          { ...FIELD.METADATA_LINK, id: "blog", label: "Blog" },
-          { ...FIELD.METADATA_LINK, id: "telegram", label: "Telegram" },
-          { ...FIELD.METADATA_LINK, id: "twitter", label: "Twitter" },
-          { ...FIELD.METADATA_LINK, id: "web", label: "Website" },
-          { ...FIELD.METADATA_LINK, id: "custom1", label: "Custom Link 1" },
-          { ...FIELD.METADATA_LINK, id: "custom2", label: "Custom Link 2" },
-          { ...FIELD.METADATA_LINK, id: "custom3", label: "Custom Link 3" },
+          { ...FIELD.METADATA_LINK, id: "web", label: "WEBSITE" },
+          { ...FIELD.LINK, id: "discord", label: "DISCORD" },
+          { ...FIELD.METADATA_LINK, id: "github", label: "GITHUB" },
+          { ...FIELD.METADATA_LINK, id: "blog", label: "BLOG" },
+          { ...FIELD.METADATA_LINK, id: "telegram", label: "TELEGRAM" },
+          { ...FIELD.METADATA_LINK, id: "twitter", label: "TWITTER" },
+          { ...FIELD.METADATA_LINK, id: "custom1", label: "CUSTOM 1" },
+          { ...FIELD.METADATA_LINK, id: "custom2", label: "CUSTOM 2" },
+          { ...FIELD.METADATA_LINK, id: "custom3", label: "CUSTOM 3" },
         ],
       },
     ],

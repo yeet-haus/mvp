@@ -29,7 +29,11 @@ export const halfHotDogTheme: ThemeOverrides = {
   },
   danger: {
     ...defaultDarkTheme.danger,
-    step9: jaundiceYellow.step3,
+    step9: nipplePink.step1,
+  },
+  warning: {
+    ...defaultDarkTheme.warning,
+    step9: nipplePink.step1,
   },
   success: {
     ...defaultDarkTheme.success,
@@ -55,12 +59,12 @@ export const halfHotDogTheme: ThemeOverrides = {
       border: secondaryDark.step3,
     },
     baseItem: {
-      color: jaundiceYellow.step1,
+      color: banalityBeige.step1,
       hover: {
         bg: jaundiceYellow.step2,
       },
       focus: {
-        bg: secondaryDark.step11,
+        bg: jaundiceYellow.step2,
       },
     },
     link: {
@@ -94,6 +98,9 @@ export const halfHotDogTheme: ThemeOverrides = {
       border: deathBlack.step1,
     },
   },
+  tag: {
+    radius: "9px",
+  },
   textarea: {
     ...defaultDarkTheme.textarea,
     bg: banalityBeige.step1,
@@ -119,7 +126,7 @@ export const halfHotDogTheme: ThemeOverrides = {
     ...defaultDarkTheme.select,
     bg: jaundiceYellow.step1,
     color: deathBlack.step1,
-    radius: "8px",
+    radius: "200px",
     hover: {
       bg: jaundiceYellow.step1,
       border: jaundiceYellow.step1,
@@ -171,12 +178,12 @@ export const halfHotDogTheme: ThemeOverrides = {
     },
   },
   toast: {
-    bg: babyDiarhhea.step1,
-    border: babyDiarhhea.step1,
-    radius: "200px",
+    bg: banalityBeige.step1,
+    border: banalityBeige.step1,
+    radius: "0px",
     success: {
-      bg: nipplePink.step1,
-      border: nipplePink.step1,
+      bg: banalityBeige.step1,
+      border: banalityBeige.step1,
     },
     warning: {
       bg: jaundiceYellow.step1,
@@ -191,6 +198,16 @@ export const halfHotDogTheme: ThemeOverrides = {
       success: nipplePink.step3,
       warning: jaundiceYellow.step1,
       error: jaundiceYellow.step1,
+    },
+  },
+  tooltip: {
+    ...defaultDarkTheme.tooltip,
+    icon: {
+      color: nipplePink.step1,
+    },
+    content: {
+      bg: nipplePink.step1,
+      color: deathBlack.step1,
     },
   },
 };

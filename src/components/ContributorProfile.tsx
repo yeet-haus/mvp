@@ -9,6 +9,10 @@ const ProfileContainer = styled.div`
   gap: 1rem;
 `;
 
+const StyledDataMd = styled(DataMd)`
+  font-size: 1.6rem;
+`;
+
 type YeeterProfileProps = {
   address: string;
 };
@@ -20,7 +24,7 @@ export const ContributorProfile = ({ address }: YeeterProfileProps) => {
   return (
     <ProfileContainer>
       <ProfileAvatar address={address} image={profile?.avatar} />
-      <DataMd>{profile?.ens || truncateAddress(address)}</DataMd>
+      <StyledDataMd>{profile?.ens || truncateAddress(address)}</StyledDataMd>
     </ProfileContainer>
   );
 };

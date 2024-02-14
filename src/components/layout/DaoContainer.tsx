@@ -51,7 +51,6 @@ const Dao = ({
     console.log("location", location);
 
     if (location.pathname.match(/success/g)) {
-      console.log("POOOOOPIN");
       document.body.classList.add("explosion");
     } else {
       document.body.classList.remove("explosion");
@@ -75,8 +74,8 @@ const Dao = ({
     <DHLayout
       pathname={location.pathname}
       navLinks={[
-        { label: "Explore", href: `/` },
-        { label: "Project", href: `/${routePath}` },
+        { label: "EXPLORE", href: `/` },
+        { label: "PROJECT", href: `/${routePath}` },
       ]}
       leftNav={
         dao?.name &&

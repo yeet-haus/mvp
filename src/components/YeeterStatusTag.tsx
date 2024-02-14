@@ -1,4 +1,3 @@
-import { Tag } from "@daohaus/ui";
 import { YeeterItem } from "../utils/types";
 import {
   calcYeetIsActive,
@@ -6,6 +5,7 @@ import {
   calcYeetIsEnded,
   calcYeetIsFull,
 } from "../utils/yeetDataHelpers";
+import { Tag } from "./hub/Tag";
 
 export const YeeterStatusTag = ({
   yeeter,
@@ -18,29 +18,17 @@ export const YeeterStatusTag = ({
   const isFull = calcYeetIsFull(yeeter);
 
   if (isEnded || isFull) {
-    return (
-      <Tag tagColor="pink" fontSize={fontSize}>
-        Yeet Complete
-      </Tag>
-    );
+    return <Tag fontSize={fontSize}>Yeet Complete</Tag>;
   }
 
   const isComing = calcYeetIsComingSoon(yeeter);
   if (isComing) {
-    return (
-      <Tag tagColor="blue" fontSize={fontSize}>
-        Coming Soon
-      </Tag>
-    );
+    return <Tag fontSize={fontSize}>Coming Soon</Tag>;
   }
 
   const isActive = calcYeetIsActive(yeeter);
   if (isActive) {
-    return (
-      <Tag tagColor="yellow" fontSize={fontSize}>
-        Yeeting Now!
-      </Tag>
-    );
+    return <Tag fontSize={fontSize}>Yeeting Now!</Tag>;
   }
 
   return null;

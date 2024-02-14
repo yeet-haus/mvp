@@ -8,6 +8,7 @@ import {
   fromWei,
 } from "@daohaus/utils";
 import { ContributorProfile } from "./ContributorProfile";
+import { HAUS_NETWORK_DATA, ValidNetwork } from "@daohaus/keychain-utils";
 
 export const YeetListContainer = styled.div`
   display: flex;
@@ -40,9 +41,18 @@ export const YeetListItem = styled.div`
   .date {
     margin-top: 0.5rem;
   }
+  .message {
+    overflow-x: hidden;
+  }
 `;
 
-export const YeetList = ({ yeets }: { yeets: YeetsItem[] }) => {
+export const YeetList = ({
+  yeets,
+  chainId,
+}: {
+  yeets: YeetsItem[];
+  chainId: string;
+}) => {
   return (
     <YeetListContainer>
       {yeets &&
@@ -57,7 +67,7 @@ export const YeetList = ({ yeets }: { yeets: YeetsItem[] }) => {
                     value: fromWei(yeet.amount),
                     decimals: 3,
                     format: "numberShort",
-                  })} ETH`}
+                  })} ${HAUS_NETWORK_DATA[chainId as ValidNetwork]?.symbol}`}
                 </DataXl>
               </div>
               <div className="message">

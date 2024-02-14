@@ -2,7 +2,7 @@ export const hotDogFont = {
   family: {
     header: `'Poppins', sans-serif`,
     body: `'Poppins', sans-serif`,
-    data: `'Space Mono', monospace`,
+    data: `'Poppins', sans-serif`,
   },
   size: {
     xs: "1.2rem",

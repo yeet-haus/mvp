@@ -5,6 +5,7 @@ import { YeetH1 } from "../components/layout/Shared";
 import styled from "styled-components";
 import { getNetworkName } from "@daohaus/keychain-utils";
 import { H1 } from "@daohaus/ui";
+import { banalityBeige, deathBlack, jaundiceYellow } from "../theme/colors";
 
 const Container = styled.div`
   display: flex;
@@ -18,6 +19,8 @@ const StyledYeetH1 = styled(YeetH1)`
 
 const StyledH1 = styled(H1)`
   font-weight: 900;
+  color: ${jaundiceYellow.step1};
+  text-shadow: 5px 5px ${deathBlack.step1};
 `;
 
 export const Explore = () => {

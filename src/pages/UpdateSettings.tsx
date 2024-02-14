@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 import { FormBuilder } from "@daohaus/form-builder";
 import { useCurrentDao, useDaoData } from "@daohaus/moloch-v3-hooks";
@@ -9,7 +10,11 @@ import { APP_FORM } from "../legos/forms";
 import { useYeeter } from "../hooks/useYeeter";
 import { useCurrentYeeter } from "../contexts/CurrentYeeterContext";
 import { ValidNetwork } from "@daohaus/keychain-utils";
-import { FormOverview } from "../components/layout/Shared";
+import { FormOverview, YeetH1 } from "../components/layout/Shared";
+
+const StyledYeetH1 = styled(YeetH1)`
+  margin-top: 3rem;
+`;
 
 const UpdateSettings = () => {
   const { dao, refetch } = useDaoData();
@@ -50,6 +55,7 @@ const SettingsForm = ({
   };
   return (
     <FormOverview>
+      <StyledYeetH1>UPDATE YEET DETAILS</StyledYeetH1>
       <FormBuilder
         defaultValues={metadata}
         form={APP_FORM.METADATA_SETTINGS}

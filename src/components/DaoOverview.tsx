@@ -6,7 +6,7 @@ import { ValidNetwork } from "@daohaus/keychain-utils";
 import { useDaoData } from "@daohaus/moloch-v3-hooks";
 import { useYeeter } from "../hooks/useYeeter";
 import { useYeets } from "../hooks/useYeets";
-import { OverviewCard } from "./layout/Shared";
+import { OverviewCard } from "./layout/OverviewCard";
 import { YeetProfile } from "./YeetProfile";
 import { YeetGoalProgress } from "./YeetGoalProgress";
 import { YeetTimeBlock } from "./YeetTimeBlock";
@@ -21,7 +21,7 @@ const YeetsHeader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   text-align: center;
 
   .total {
@@ -91,7 +91,7 @@ export const DaoOverview = ({
               />
             )}
 
-            {yeeter && <YeetGoalProgress yeeter={yeeter} />}
+            {yeeter && <YeetGoalProgress yeeter={yeeter} chainId={daoChain} />}
             {yeeter && <YeetTimeBlock yeeter={yeeter} />}
             {yeeter && <YeetButton yeeter={yeeter} />}
           </OverviewCard>
@@ -111,11 +111,11 @@ export const DaoOverview = ({
                     className="yeetSelect"
                     options={[
                       {
-                        name: "All Yeets",
+                        name: "ALL YEETS",
                         value: "all",
                       },
                       {
-                        name: "My Yeets",
+                        name: "MY YEETS",
                         value: "user",
                       },
                     ]}
@@ -125,6 +125,7 @@ export const DaoOverview = ({
             </YeetsHeader>
             {yeets && (
               <YeetList
+                chainId={daoChain}
                 yeets={yeets.filter((y: YeetsItem) => {
                   if (yeetFilter === "user" && address) {
                     return (
