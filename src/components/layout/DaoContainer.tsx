@@ -51,7 +51,6 @@ const Dao = ({
     console.log("location", location);
 
     if (location.pathname.match(/success/g)) {
-      console.log("POOOOOPIN");
       document.body.classList.add("explosion");
     } else {
       document.body.classList.remove("explosion");

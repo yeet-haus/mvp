@@ -5,6 +5,7 @@ import { formatValueTo, fromWei } from "@daohaus/utils";
 import { YeeterItem } from "../utils/types";
 import { calcProgressPerc } from "../utils/yeetDataHelpers";
 import { jaundiceYellow } from "../theme/colors";
+import { HAUS_NETWORK_DATA, ValidNetwork } from "@daohaus/keychain-utils";
 
 const ProgressRow = styled.div`
   display: flex;
@@ -25,7 +26,13 @@ const ProgressRow = styled.div`
   }
 `;
 
-export const YeetGoalProgress = ({ yeeter }: { yeeter: YeeterItem }) => {
+export const YeetGoalProgress = ({
+  yeeter,
+  chainId,
+}: {
+  yeeter: YeeterItem;
+  chainId: string;
+}) => {
   const percentageComplete = yeeter
     ? `${calcProgressPerc(yeeter.balance, yeeter.goal)}%`
     : "0%";
@@ -44,7 +51,7 @@ export const YeetGoalProgress = ({ yeeter }: { yeeter: YeeterItem }) => {
               value: fromWei(yeeter.goal),
               decimals: 3,
               format: "numberShort",
-            })} ETH`}
+            })} ${HAUS_NETWORK_DATA[chainId as ValidNetwork]?.symbol}`}
           />
           <div className="bar">
             <ProgressBar

@@ -1,11 +1,12 @@
 import { useDHConnect } from "@daohaus/connect";
 import { generateExplorerLink } from "@daohaus/keychain-utils";
-import { Button, H1, SingleColumnLayout, Link } from "@daohaus/ui";
+import { Button, H1, SingleColumnLayout, Link, widthQuery } from "@daohaus/ui";
 import { fromWei } from "@daohaus/utils";
 import { useMemo } from "react";
 import { Link as RouterLink, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { YeetH1 } from "../components/layout/Shared";
+import { deathBlack } from "../theme/colors";
 
 const Contain = styled.div`
   text-align: center;
@@ -20,11 +21,21 @@ const ButtonContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   margin-top: 5rem;
+  width: 50rem;
+
+  @media ${widthQuery.xs} {
+    width: 25rem;
+  }
+`;
+
+const ShadowButton = styled(Button)`
+  box-shadow: 5px 5px ${deathBlack.step1};
 `;
 
 const LinkButton = styled(RouterLink)`
   text-decoration: none;
   color: unset;
+
   &:hover {
     text-decoration: none;
   }
@@ -33,6 +44,8 @@ const LinkButton = styled(RouterLink)`
 const ExternalLinkButton = styled(Link)`
   text-decoration: none;
   color: unset;
+  font-weight: 800;
+
   &:hover {
     text-decoration: none;
   }
@@ -69,23 +82,24 @@ export const YeetSuccess = () => {
           SOMEONE YEETED & RECEIVED {formattedLoot} LOOT!
         </StyledYeetH1>
         <ButtonContainer>
-          <Button color="secondary" fullWidth>
+          <ShadowButton color="secondary" fullWidth>
             <LinkButton to={`/molochV3/${chainId}/${daoId}/`}>
-              Back to Project
+              BACK TO PROJECT
             </LinkButton>
-          </Button>
-          <Button color="secondary" fullWidth>
+          </ShadowButton>
+          <ShadowButton color="secondary" fullWidth>
             <ExternalLinkButton
               href={`https://admin.daohaus.club/#/molochv3/${chainId}/${daoId}`}
+              showExternalIcon={false}
             >
-              Look at the Project's DAO
+              LOOK AT THE PROJECT DAO
             </ExternalLinkButton>
-          </Button>
-          <Button color="secondary" fullWidth>
-            <ExternalLinkButton href={explorerLink}>
-              View Txn
+          </ShadowButton>
+          <ShadowButton color="secondary" fullWidth>
+            <ExternalLinkButton href={explorerLink} showExternalIcon={false}>
+              VIEW TXN
             </ExternalLinkButton>
-          </Button>
+          </ShadowButton>
         </ButtonContainer>
       </Contain>
     </SingleColumnLayout>

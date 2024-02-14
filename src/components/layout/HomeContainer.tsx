@@ -5,16 +5,26 @@ import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { assembleYeeterSummonerArgs } from "../../utils/summonTx";
 import { YeetH4 } from "./Shared";
+import { banalityBeige } from "../../theme/colors";
+import { useEffect } from "react";
 
-const StyledH4 = styled(H4)`
-  font-weight: 900;
-  font-size: 4rem;
-  color: ${({ theme }) => theme.link.color};
+const StyledH4 = styled(YeetH4)`
+  color: ${banalityBeige.step1};
 `;
 
 export const HomeContainer = () => {
   const location = useLocation();
   const { publicClient, address, chainId } = useDHConnect();
+
+  useEffect(() => {
+    console.log("location", location);
+
+    if (location.pathname.match(/success/g)) {
+      document.body.classList.add("explosion");
+    } else {
+      document.body.classList.remove("explosion");
+    }
+  }, [location]);
 
   return (
     <TXBuilder
@@ -26,7 +36,7 @@ export const HomeContainer = () => {
       }}
     >
       <DHLayout
-        leftNav={<YeetH4>YEETER</YeetH4>}
+        leftNav={<StyledH4>YEETER</StyledH4>}
         pathname={location.pathname}
         navLinks={[
           { label: "EXPLORE", href: `/` },

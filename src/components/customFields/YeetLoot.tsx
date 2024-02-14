@@ -9,11 +9,12 @@ import { ValidNetwork } from "@daohaus/keychain-utils";
 import { formatLootForAmount } from "../../utils/yeetDataHelpers";
 import styled from "styled-components";
 import { isNumberString } from "@daohaus/utils";
+import { deathBlack } from "../../theme/colors";
 
 const SpacedPar = styled(DataMd)`
   margin-top: 3.5rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.primary.step10};
+  color: ${deathBlack.step1};
 
   @media ${widthQuery.sm} {
     margin-top: 0rem;
@@ -44,5 +45,5 @@ export const YeetLoot = (props: Buildable<Field>) => {
 
   if (!yeeter) return null;
 
-  return <SpacedPar>Get {lootReturned} Loot Tokens</SpacedPar>;
+  return <SpacedPar>GET {lootReturned} LOOT TOKENS</SpacedPar>;
 };
