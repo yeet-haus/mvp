@@ -8,9 +8,10 @@ import { useYeeter } from "../../hooks/useYeeter";
 import { YeeterStatusTag } from "../YeeterStatusTag";
 import { deathBlack, jaundiceYellow } from "../../theme/colors";
 import { YeetButtonRouterLink } from "../layout/Shared";
+import { HAUS_NETWORK_DATA, ValidNetwork } from "@daohaus/keychain-utils";
 
 const StyledDaoCard = styled.div`
-  background-color: ${(props) => props.theme.secondary.step2};
+  background-color: ${(props) => props.theme.card.bg};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,11 +65,16 @@ export const DaoCard = ({
         </div>
       </div>
       <FatParLg className="dao-title">
-        {dao?.name ? charLimit(dao.name, 14) : charLimit(yeeter.id, 14)}{" "}
+        {dao?.name
+          ? charLimit(dao.name, 11)?.toUpperCase()
+          : charLimit(yeeter.id, 11)?.toUpperCase()}{" "}
       </FatParLg>
       <div className="stats-box">
         <ParLg>
-          <Bold>{toWholeUnits(yeeter.balance)} Eth Raised</Bold>{" "}
+          <Bold>
+            {toWholeUnits(yeeter.balance)}{" "}
+            {HAUS_NETWORK_DATA[chainId as ValidNetwork]?.symbol} Raised
+          </Bold>{" "}
         </ParLg>
       </div>
       <div className="tag-box">
@@ -79,7 +85,7 @@ export const DaoCard = ({
         color="secondary"
         to={`/molochv3/${chainId}/${yeeter.dao.id}`}
       >
-        Go
+        GO
       </YeetButtonRouterLink>
     </StyledDaoCard>
   );

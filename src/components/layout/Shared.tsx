@@ -21,7 +21,7 @@ export const FormOverview = styled.div`
   border-radius: ${({ theme }) => theme.card.radius};
   padding: 6rem 8rem 12rem 8rem;
   margin-top: 5rem;
-  box-shadow: 5px 5px ${deathBlack.step1}, -5px -5px ${jaundiceYellow.step1};
+  box-shadow: 10px 10px ${deathBlack.step1}, -10px -10px ${jaundiceYellow.step1};
   display: flex;
   flex-direction: column;
   align-items: center;

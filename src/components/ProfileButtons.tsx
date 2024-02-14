@@ -35,14 +35,18 @@ const BoldDataMd = styled(DataMd)`
 const ButtonLink = styled(Link)`
   background-color: ${nipplePink.step1};
   color: ${deathBlack.step1};
-  width: fit-content;
-  height: 4.8rem;
+  /* width: fit-content; */
+  height: 5rem;
+  min-width: 250px;
 
   padding: 1.2rem;
   border-radius: 200px;
   border: 1px solid black;
   font-size: ${({ theme }) => theme.font.size.sm};
   box-shadow: 3px 3px ${deathBlack.step1};
+
+  display: flex;
+  justify-content: center;
 
   &:hover {
     background-color: ${nipplePink.step2};
@@ -70,12 +74,7 @@ export const ProfileButtons = ({
   const linkList = useMemo(() => {
     if (!metadata || !metadata.links) return;
 
-    const validLinks = [
-      {
-        url: `https://admin.daohaus.club/#/molochv3/${daoChain}/${daoId}`,
-        label: "DAO",
-      },
-    ];
+    const validLinks = [];
 
     return metadata.links.reduce(
       (links: LinkObj[], link: string): LinkObj[] => {
@@ -91,7 +90,7 @@ export const ProfileButtons = ({
   return (
     <>
       <ButtonRow>
-        <BoldDataMd>Project Links</BoldDataMd>
+        <BoldDataMd>PROJECT LINKS</BoldDataMd>
         <ButtonLink
           href={`https://admin.daohaus.club/#/molochv3/${daoChain}/${daoId}`}
           type="external"

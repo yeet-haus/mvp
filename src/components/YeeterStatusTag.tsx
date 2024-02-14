@@ -1,4 +1,3 @@
-import { Tag } from "@daohaus/ui";
 import { YeeterItem } from "../utils/types";
 import {
   calcYeetIsActive,
@@ -6,6 +5,7 @@ import {
   calcYeetIsEnded,
   calcYeetIsFull,
 } from "../utils/yeetDataHelpers";
+import { Tag } from "./hub/Tag";
 
 export const YeeterStatusTag = ({
   yeeter,

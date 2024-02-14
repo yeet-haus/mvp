@@ -86,20 +86,20 @@ export const YeetProfile = ({
           address={shamanAddress}
           image={metadata.icon || dao.avatarImg}
         />
-        <YeetName>{dao.name}</YeetName>
+        <YeetName>{dao.name?.toUpperCase()}</YeetName>
       </ProfileRow>
       <Collapser
-        title="What are we funding?"
+        title="WHAT ARE WE FUNDING?"
         content={
           <DetailsContainer>
             <div>
-              <BoldDataMd>Project Details</BoldDataMd>
+              <BoldDataMd>DESCRIPTION</BoldDataMd>
               <ReactMarkdown className="projectDetails">
                 {metadata.projectDetails || "?????"}
               </ReactMarkdown>
             </div>
             <div>
-              <BoldDataMd>Mission</BoldDataMd>
+              <BoldDataMd>MISSION</BoldDataMd>
 
               <ReactMarkdown className="mission">
                 {metadata.missionStatement || "?????"}
