@@ -6,7 +6,7 @@ import { ValidNetwork } from "@daohaus/keychain-utils";
 import { useDaoData } from "@daohaus/moloch-v3-hooks";
 import { useYeeter } from "../hooks/useYeeter";
 import { useYeets } from "../hooks/useYeets";
-import { OverviewCard } from "./layout/Shared";
+import { OverviewCard } from "./layout/OverviewCard";
 import { YeetProfile } from "./YeetProfile";
 import { YeetGoalProgress } from "./YeetGoalProgress";
 import { YeetTimeBlock } from "./YeetTimeBlock";
