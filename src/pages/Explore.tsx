@@ -4,8 +4,8 @@ import { DEFAULT_CHAIN_ID } from "../utils/constants";
 import { YeetH1 } from "../components/layout/Shared";
 import styled from "styled-components";
 import { getNetworkName } from "@daohaus/keychain-utils";
-import { H1 } from "@daohaus/ui";
-import { banalityBeige, deathBlack, jaundiceYellow } from "../theme/colors";
+import { H1, widthQuery } from "@daohaus/ui";
+import { deathBlack, jaundiceYellow } from "../theme/colors";
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +21,14 @@ const StyledH1 = styled(H1)`
   font-weight: 900;
   color: ${jaundiceYellow.step1};
   text-shadow: 5px 5px ${deathBlack.step1};
+
+  @media ${widthQuery.md} {
+    font-size: 5rem;
+  }
+
+  @media ${widthQuery.xs} {
+    font-size: 3rem;
+  }
 `;
 
 export const Explore = () => {
@@ -29,7 +37,9 @@ export const Explore = () => {
   return (
     <Container>
       <StyledYeetH1>EXPLORE YEETERS</StyledYeetH1>
-      <StyledH1>on {getNetworkName(chainId || DEFAULT_CHAIN_ID)}</StyledH1>
+      <StyledH1>
+        ON {getNetworkName(chainId || DEFAULT_CHAIN_ID)?.toUpperCase()}
+      </StyledH1>
       <HomeDashboard chainId={DEFAULT_CHAIN_ID} />;
     </Container>
   );

@@ -28,7 +28,7 @@ export const FormOverview = styled.div`
   width: 74rem;
 
   @media ${widthQuery.md} {
-    padding: 6rem 4.5rem 12rem 4.5rem;
+    padding: 6rem 2.3rem 12rem 2.3rem;
     max-width: 100%;
     min-width: 0;
 

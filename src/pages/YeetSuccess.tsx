@@ -92,7 +92,7 @@ export const YeetSuccess = () => {
               href={`https://admin.daohaus.club/#/molochv3/${chainId}/${daoId}`}
               showExternalIcon={false}
             >
-              LOOK AT THE PROJECT DAO
+              VISIT THE DAO
             </ExternalLinkButton>
           </ShadowButton>
           <ShadowButton color="secondary" fullWidth>
