@@ -55,8 +55,8 @@ export const halfHotDogTheme: ThemeOverrides = {
       bg: nipplePink.step1,
     },
     content: {
-      bg: secondaryDark.step4,
-      border: secondaryDark.step3,
+      bg: nipplePink.step1,
+      border: nipplePink.step1,
     },
     baseItem: {
       color: banalityBeige.step1,
@@ -64,13 +64,13 @@ export const halfHotDogTheme: ThemeOverrides = {
         bg: jaundiceYellow.step2,
       },
       focus: {
-        bg: jaundiceYellow.step2,
+        bg: banalityBeige.step1,
       },
     },
     link: {
       active: {
-        border: jaundiceYellow.step3,
-        color: jaundiceYellow.step3,
+        border: jaundiceYellow.step1,
+        color: jaundiceYellow.step1,
       },
     },
   },
