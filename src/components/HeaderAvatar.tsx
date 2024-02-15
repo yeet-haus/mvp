@@ -16,6 +16,7 @@ const DaoProfileAvatar = styled(ProfileAvatar)`
 
 const StyledH4 = styled(YeetH4)`
   color: ${banalityBeige.step1};
+  line-height: 4rem;
 `;
 
 type HAvatar = {

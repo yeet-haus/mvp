@@ -44,7 +44,7 @@ const ProfileRow = styled.div`
 const YeetName = styled(H3)`
   font-size: 4rem;
   font-weight: 900;
-  line-height: 5rem;
+  line-height: 3.8rem;
   width: 100%;
   word-wrap: break-word;
 `;
@@ -55,6 +55,8 @@ const DetailsContainer = styled.div`
   gap: 3rem;
 
   .projectDetails {
+    font-size: 16px;
+    font-weight: 600;
     margin-top: 1rem;
   }
   .mission {
