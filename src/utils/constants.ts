@@ -61,8 +61,8 @@ export const DEFAULT_YEETER_VALUES = {
   lootPerYeet: "100",
 };
 export const DEFAULT_SUMMON_VALUES = {
-  votingPeriodInSeconds: 120,
-  gracePeriodInSeconds: 60,
+  votingPeriodInSeconds: 43200,
+  gracePeriodInSeconds: 21600,
   newOffering: "0",
   quorum: "0",
   sponsorThreshold: "1000000000000000000",
