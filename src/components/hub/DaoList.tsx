@@ -24,16 +24,14 @@ const CardListBox = styled.div`
 `;
 
 const DaoCards = ({ daoData }: { daoData: YeeterItem[] }) => {
-  const { chainId } = useConnect();
+  const { chainId, validNetwork } = useConnect();
+
+  const displayNetwork = validNetwork && chainId ? chainId : DEFAULT_CHAIN_ID;
 
   return (
     <CardListBox>
       {daoData.map((yeeter: YeeterItem) => (
-        <DaoCard
-          key={yeeter.id}
-          yeeter={yeeter}
-          chainId={chainId || DEFAULT_CHAIN_ID}
-        />
+        <DaoCard key={yeeter.id} yeeter={yeeter} chainId={displayNetwork} />
       ))}
     </CardListBox>
   );

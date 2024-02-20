@@ -2,11 +2,8 @@ import { ReactNode } from "react";
 import styled from "styled-components";
 
 import { Noun } from "@daohaus/utils";
-import { H1, SingleColumnLayout, useBreakpoint, widthQuery } from "@daohaus/ui";
+import { SingleColumnLayout, widthQuery } from "@daohaus/ui";
 // import SearchInput from "./SearchInput";
-import { useDHConnect } from "@daohaus/connect";
-import { getNetworkName } from "@daohaus/keychain-utils";
-import { DEFAULT_CHAIN_ID } from "../../utils/constants";
 
 type ListActionsProps = {
   children: ReactNode;
@@ -39,8 +36,8 @@ export const ListActions = ({
   // console.log("chainId", chainId);
   // todo: pass connected chain when multichain and handle wrong chain
 
-  const chainId = DEFAULT_CHAIN_ID;
-  const isMobile = useBreakpoint(widthQuery.sm);
+  // const chainId = DEFAULT_CHAIN_ID;
+  // const isMobile = useBreakpoint(widthQuery.sm);
 
   return (
     <SingleColumnLayout>
