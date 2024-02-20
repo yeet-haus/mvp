@@ -32,15 +32,15 @@ const StyledH1 = styled(H1)`
 `;
 
 export const Explore = () => {
-  const { chainId } = useConnect();
+  const { chainId, validNetwork } = useConnect();
+
+  const displayNetwork = validNetwork && chainId ? chainId : DEFAULT_CHAIN_ID;
 
   return (
     <Container>
       <StyledYeetH1>EXPLORE YEETERS</StyledYeetH1>
-      <StyledH1>
-        ON {getNetworkName(chainId || DEFAULT_CHAIN_ID)?.toUpperCase()}
-      </StyledH1>
-      <HomeDashboard chainId={DEFAULT_CHAIN_ID} />;
+      <StyledH1>ON {getNetworkName(displayNetwork)?.toUpperCase()}</StyledH1>
+      <HomeDashboard chainId={displayNetwork} />;
     </Container>
   );
 };
