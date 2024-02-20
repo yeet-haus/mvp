@@ -11,20 +11,26 @@ type KEYCHAIN = {
 };
 
 export const GRAPH_URL: KEYCHAIN = {
-  "0x5":
-    "https://api.thegraph.com/subgraphs/name/odyssy-automaton/yeeter-dh-ui-v2",
   "0xaa36a7":
     "https://api.thegraph.com/subgraphs/name/yeet-haus/yeeter-sepolia",
+  "0x64": "https://api.thegraph.com/subgraphs/name/yeet-haus/yeeter-gnosis",
+  "0xa": "https://api.thegraph.com/subgraphs/name/yeet-haus/yeeter-optimism",
+  "0xa4b1": "https://api.thegraph.com/subgraphs/name/yeet-haus/yeeter-arbitrum",
+  "0x2105":
+    "https://api.studio.thegraph.com/query/3450/yeeter-base-v1/version/latest",
 };
 
 export const YEETER_DAO_REFERRER = "DHOnboarderShamanSummoner";
 
 export const targetNetworks: Keychain<NetworkConfig> = {
-  "0x5": HAUS_NETWORK_DATA["0x5"],
   "0xaa36a7": HAUS_NETWORK_DATA["0xaa36a7"],
+  "0x64": HAUS_NETWORK_DATA["0x64"],
+  "0xa": HAUS_NETWORK_DATA["0xa"],
+  "0xa4b1": HAUS_NETWORK_DATA["0xa4b1"],
+  "0x2105": HAUS_NETWORK_DATA["0x2105"],
 };
 
-export const DEFAULT_CHAIN_ID = "0xaa36a7";
+export const DEFAULT_CHAIN_ID = "0x64";
 
 export const getValidChainId = (chainId?: string) => {
   return targetNetworks[chainId as ValidNetwork]?.chainId || DEFAULT_CHAIN_ID;
@@ -32,16 +38,18 @@ export const getValidChainId = (chainId?: string) => {
 
 export const YEETER_CONTRACTS: KeychainList = {
   ONBOARDER_SUMMONER: {
-    "0x1": "",
-    "0x5": "0x45a2583F50602C169D459D98761df6D48c1EB3D6",
-    "0xa": "",
-    "0xaa36a7": "0x8D60971eFf778966356c1cADD76d525E7B25cc6b",
+    "0x64": "0x313f9A3C9A5041e9be00cf88b18962581A4eFb35",
+    "0xa": "0x2875aEbb4472E5E579a2A5290c7B5A3C90484D5F",
+    "0xa4b1": "0x2875aEbb4472E5E579a2A5290c7B5A3C90484D5F",
+    "0x2105": "0x2875aEbb4472E5E579a2A5290c7B5A3C90484D5F",
+    "0xaa36a7": "0x2875aEbb4472E5E579a2A5290c7B5A3C90484D5F",
   },
   ETH_YEETER_SINGLETON: {
-    "0x1": "",
-    "0x5": "0x4cCaeF82053aDa5d14188Dbe241b91dF9F1Cb151",
-    "0xa": "",
-    "0xaa36a7": "0x62fF4Ca410E9e58f5ce8B2Ad03695EF0ad990381",
+    "0x64": "0xbe056B4187387D1Cb503370FeA2815e42981DfdF",
+    "0xa": "0x8D60971eFf778966356c1cADD76d525E7B25cc6b",
+    "0xa4b1": "0x8D60971eFf778966356c1cADD76d525E7B25cc6b",
+    "0x2105": "0x8D60971eFf778966356c1cADD76d525E7B25cc6b",
+    "0xaa36a7": "0x8D60971eFf778966356c1cADD76d525E7B25cc6b",
   },
 };
 
