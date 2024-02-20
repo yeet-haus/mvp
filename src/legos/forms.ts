@@ -94,7 +94,7 @@ export const APP_FORM: Record<string, CustomFormLego> = {
       {
         id: "goal",
         type: "toWeiInput",
-        label: "FUNDRAISING GOAL (ETH)",
+        label: "FUNDRAISING GOAL (network token)",
         placeholder: "69,420",
         expectType: "number",
       },
@@ -107,7 +107,7 @@ export const APP_FORM: Record<string, CustomFormLego> = {
             left: {
               id: "minTribute",
               type: "toWeiInput",
-              label: "MINIMUM YEET (ETH)",
+              label: "MINIMUM YEET (network token)",
               placeholder: "0.01",
               expectType: "number",
               rules: {
