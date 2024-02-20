@@ -30,7 +30,7 @@ export const targetNetworks: Keychain<NetworkConfig> = {
   "0x2105": HAUS_NETWORK_DATA["0x2105"],
 };
 
-export const DEFAULT_CHAIN_ID = "0xa4b1";
+export const DEFAULT_CHAIN_ID = "0x64";
 
 export const getValidChainId = (chainId?: string) => {
   return targetNetworks[chainId as ValidNetwork]?.chainId || DEFAULT_CHAIN_ID;
