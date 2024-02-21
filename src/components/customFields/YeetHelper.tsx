@@ -3,7 +3,7 @@ import { Buildable, Field, DataXs } from "@daohaus/ui";
 import { useYeeter } from "../../hooks/useYeeter";
 import { useParams } from "react-router-dom";
 import { useCurrentYeeter } from "../../contexts/CurrentYeeterContext";
-import { ValidNetwork } from "@daohaus/keychain-utils";
+import { HAUS_NETWORK_DATA, ValidNetwork } from "@daohaus/keychain-utils";
 import {
   formatLootForMin,
   formatMinContribution,
@@ -24,7 +24,8 @@ export const YeetHelper = (props: Buildable<Field>) => {
   return (
     <DataXs>
       Receive {formatLootForMin(yeeter)} loot tokens per{" "}
-      {formatMinContribution(yeeter)} ETH contributed
+      {formatMinContribution(yeeter)}{" "}
+      {HAUS_NETWORK_DATA[daoChain as ValidNetwork]?.symbol} contributed
     </DataXs>
   );
 };

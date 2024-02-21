@@ -7,6 +7,7 @@ import {
   formatMinContribution,
 } from "../utils/yeetDataHelpers";
 import { YeetButtonRouterLink } from "./layout/Shared";
+import { HAUS_NETWORK_DATA, ValidNetwork } from "@daohaus/keychain-utils";
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -15,14 +16,21 @@ const ButtonContainer = styled.div`
   margin-top: 3rem;
 `;
 
-export const YeetButton = ({ yeeter }: { yeeter: YeeterItem }) => {
+export const YeetButton = ({
+  yeeter,
+  chainId,
+}: {
+  yeeter: YeeterItem;
+  chainId: string;
+}) => {
   return (
     <ButtonContainer>
       {yeeter.isActive && (
         <>
           <DataSm>
             Receive {formatLootForMin(yeeter)} loot tokens per{" "}
-            {formatMinContribution(yeeter)} ETH contributed
+            {formatMinContribution(yeeter)}
+            {HAUS_NETWORK_DATA[chainId as ValidNetwork]?.symbol} contributed
           </DataSm>
           <YeetButtonRouterLink
             to="yeet"
