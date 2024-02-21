@@ -58,10 +58,15 @@ const DetailsContainer = styled.div`
     font-size: 16px;
     font-weight: 600;
     margin-top: 1rem;
+
+    ol {
+      line-height: 1.75;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
   }
   .mission {
-    font-size: 16px;
-    font-weight: 600;
     margin-top: 1rem;
   }
 `;
@@ -105,7 +110,7 @@ export const YeetProfile = ({
             <div>
               <BoldDataMd>MISSION</BoldDataMd>
 
-              <ReactMarkdown className="mission">
+              <ReactMarkdown className="projectDetails mission">
                 {metadata.missionStatement || "?????"}
               </ReactMarkdown>
             </div>
