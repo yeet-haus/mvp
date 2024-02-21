@@ -93,7 +93,7 @@ export const DaoOverview = ({
 
             {yeeter && <YeetGoalProgress yeeter={yeeter} chainId={daoChain} />}
             {yeeter && <YeetTimeBlock yeeter={yeeter} />}
-            {yeeter && <YeetButton yeeter={yeeter} />}
+            {yeeter && <YeetButton yeeter={yeeter} chainId={daoChain} />}
           </OverviewCard>
           <OverviewCard>
             <YeetsHeader>
