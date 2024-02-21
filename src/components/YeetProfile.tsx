@@ -60,6 +60,8 @@ const DetailsContainer = styled.div`
     margin-top: 1rem;
   }
   .mission {
+    font-size: 16px;
+    font-weight: 600;
     margin-top: 1rem;
   }
 `;
