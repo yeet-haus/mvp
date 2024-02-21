@@ -59,6 +59,7 @@ export const DEFAULT_YEETER_VALUES = {
   feeRecipients: ["0xD0f8720846890a7961945261FE5012E4cA39918e"],
   feeAmounts: ["30000"],
   lootPerYeet: "100",
+  multiplier: "100",
 };
 export const DEFAULT_SUMMON_VALUES = {
   votingPeriodInSeconds: 43200,

@@ -25,7 +25,7 @@ export const APP_FORM: Record<string, CustomFormLego> = {
             left: {
               id: "amount",
               type: "yeetAmount",
-              label: "YEET ETH",
+              label: "YEET",
               expectType: "number",
             },
             right: {
@@ -93,8 +93,8 @@ export const APP_FORM: Record<string, CustomFormLego> = {
       },
       {
         id: "goal",
-        type: "toWeiInput",
-        label: "FUNDRAISING GOAL (network token)",
+        type: "labeledToWei",
+        label: "FUNDRAISING GOAL",
         placeholder: "69,420",
         expectType: "number",
       },
@@ -106,8 +106,8 @@ export const APP_FORM: Record<string, CustomFormLego> = {
             rowId: "row1",
             left: {
               id: "minTribute",
-              type: "toWeiInput",
-              label: "MINIMUM YEET (network token)",
+              type: "labeledToWei",
+              label: "MINIMUM YEET",
               placeholder: "0.01",
               expectType: "number",
               rules: {
@@ -119,7 +119,7 @@ export const APP_FORM: Record<string, CustomFormLego> = {
             },
             right: {
               id: "lootPerYeet",
-              type: "lootPerYeet",
+              type: "lootPerYeetMod",
               label: "LOOT PER MINIMUM YEET",
               expectType: "number",
               rules: {
