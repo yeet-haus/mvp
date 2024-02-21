@@ -49,7 +49,8 @@ export const Launch = () => {
         defaultValues={{
           startTime: now.toFixed(),
           endTime: then.toFixed(),
-          lootPerYeet: DEFAULT_YEETER_VALUES.lootPerYeet,
+          // lootPerYeet: DEFAULT_YEETER_VALUES.lootPerYeet,
+          multiplier: DEFAULT_YEETER_VALUES.multiplier,
         }}
       />
     </FormOverview>

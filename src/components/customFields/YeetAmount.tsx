@@ -9,8 +9,9 @@ import { RegisterOptions } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { useCurrentYeeter } from "../../contexts/CurrentYeeterContext";
 import { useYeeter } from "../../hooks/useYeeter";
-import { ValidNetwork } from "@daohaus/keychain-utils";
+import { HAUS_NETWORK_DATA, ValidNetwork } from "@daohaus/keychain-utils";
 import { formatMinContribution } from "../../utils/yeetDataHelpers";
+import { DEFAULT_CHAIN_ID } from "../../utils/constants";
 
 export const YeetAmount = (props: Buildable<Field>) => {
   const { daoId, daoChain } = useParams();
@@ -39,5 +40,16 @@ export const YeetAmount = (props: Buildable<Field>) => {
       }),
   };
 
-  return <WrappedInput {...props} rules={newRules} defaultValue="0" />;
+  const networkData = HAUS_NETWORK_DATA[daoChain as ValidNetwork] ?? {
+    symbol: "ETH",
+  };
+
+  return (
+    <WrappedInput
+      {...props}
+      rules={newRules}
+      defaultValue="0"
+      label={`${props.label} (${networkData.symbol})`}
+    />
+  );
 };

@@ -56,6 +56,18 @@ export const formatLootForMin = (yeeter: YeeterItem) => {
   });
 };
 
+export const formatLootForMinSimple = (
+  minTribute: string,
+  multiplier: string
+) => {
+  const loot = BigInt(minTribute) * BigInt(multiplier);
+  return formatValueTo({
+    value: fromWei(loot.toString()),
+    decimals: 5,
+    format: "number",
+  });
+};
+
 export const formatLootForAmount = (yeeter: YeeterItem, amount: string) => {
   const loot = BigInt(amount) * BigInt(yeeter.multiplier);
   return formatValueTo({
