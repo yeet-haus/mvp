@@ -4,6 +4,7 @@ import {
   KeychainList,
   NetworkConfig,
   ValidNetwork,
+  getNetworkName,
 } from "@daohaus/keychain-utils";
 
 type KEYCHAIN = {
@@ -28,6 +29,15 @@ export const targetNetworks: Keychain<NetworkConfig> = {
   "0xa": HAUS_NETWORK_DATA["0xa"],
   "0xa4b1": HAUS_NETWORK_DATA["0xa4b1"],
   "0x2105": HAUS_NETWORK_DATA["0x2105"],
+};
+
+export const targetNetworksForSelect = () => {
+  return Object.keys(targetNetworks).map((key) => {
+    return {
+      name: getNetworkName(key)?.toUpperCase(),
+      value: key,
+    };
+  });
 };
 
 export const DEFAULT_CHAIN_ID = "0x64";
