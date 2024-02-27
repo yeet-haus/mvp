@@ -9,7 +9,7 @@ export const useYeeters = ({ chainId }: { chainId?: string }) => {
   const graphQLClient = new GraphQLClient(GRAPH_URL[chain]);
 
   const { data, ...rest } = useQuery(
-    ["get-yeeters", { chainId }],
+    [`get-yeeters-${chainId}`, { chainId }],
     async () => {
       const res = await graphQLClient.request(GET_YEETERS);
 
