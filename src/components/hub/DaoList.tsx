@@ -4,11 +4,16 @@ import { breakpoints } from "@daohaus/ui";
 
 import { DaoCard } from "./DaoCard";
 import { YeeterItem } from "../../utils/types";
-import { DEFAULT_CHAIN_ID } from "../../utils/constants";
 import { useConnect } from "@daohaus/connect-context";
 
-export const DaoList = ({ daoData }: { daoData: YeeterItem[] }) => {
-  return <DaoCards daoData={daoData} />;
+export const DaoList = ({
+  daoData,
+  displayChain,
+}: {
+  daoData: YeeterItem[];
+  displayChain: string;
+}) => {
+  return <DaoCards daoData={daoData} displayChain={displayChain} />;
 };
 
 const CardListBox = styled.div`
@@ -23,15 +28,19 @@ const CardListBox = styled.div`
   }
 `;
 
-const DaoCards = ({ daoData }: { daoData: YeeterItem[] }) => {
+const DaoCards = ({
+  daoData,
+  displayChain,
+}: {
+  daoData: YeeterItem[];
+  displayChain: string;
+}) => {
   const { chainId, validNetwork } = useConnect();
-
-  const displayNetwork = validNetwork && chainId ? chainId : DEFAULT_CHAIN_ID;
 
   return (
     <CardListBox>
       {daoData.map((yeeter: YeeterItem) => (
-        <DaoCard key={yeeter.id} yeeter={yeeter} chainId={displayNetwork} />
+        <DaoCard key={yeeter.id} yeeter={yeeter} chainId={displayChain} />
       ))}
     </CardListBox>
   );

@@ -43,7 +43,7 @@ export const HomeDashboard = ({ chainId }: { chainId: string }) => {
   }
   return (
     <ListActions {...tableControlProps}>
-      <DaoList daoData={yeeters} />
+      <DaoList daoData={yeeters} displayChain={chainId} />
     </ListActions>
   );
 };
