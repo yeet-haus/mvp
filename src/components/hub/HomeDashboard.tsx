@@ -17,6 +17,8 @@ export const HomeDashboard = ({ chainId }: { chainId: string }) => {
 
   const { yeeters, isLoading, isError } = useYeeters({ chainId });
 
+  console.log("yeeters", yeeters);
+
   const tableControlProps = {
     setSearchTerm,
     searchTerm,
