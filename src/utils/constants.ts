@@ -17,8 +17,9 @@ export const GRAPH_URL: KEYCHAIN = {
   "0x64": "https://api.thegraph.com/subgraphs/name/yeet-haus/yeeter-gnosis",
   "0xa": "https://api.thegraph.com/subgraphs/name/yeet-haus/yeeter-optimism",
   "0xa4b1": "https://api.thegraph.com/subgraphs/name/yeet-haus/yeeter-arbitrum",
-  "0x2105":
-    "https://api.studio.thegraph.com/query/3450/yeeter-base-v1/version/latest",
+  "0x2105": `https://gateway-arbitrum.network.thegraph.com/api/${
+    import.meta.env.VITE_YEETER_GRAPH_API_KEY
+  }/subgraphs/id/6vyAqRpCyrhLsfd6TfYAssvKywKhxJykkDbPxJZ4ZcEr`,
 };
 
 export const YEETER_DAO_REFERRER = "DHOnboarderShamanSummoner";
