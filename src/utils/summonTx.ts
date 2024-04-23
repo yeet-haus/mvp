@@ -52,7 +52,6 @@ export const assembleYeeterSummonerArgs = (args: ArbitraryState) => {
     postInitializationActions,
     getNonce(),
   ];
-  console.log("txArgs", txArgs);
 
   return txArgs;
 };
@@ -107,7 +106,6 @@ const assembleShareTokenParams = ({
 
   const shareHolders: string[] = formValues["members"] as string[];
 
-  console.log("shareHolders", shareHolders);
   const shareAmounts = shareHolders.map(
     (s: string) => DEFAULT_SUMMON_VALUES.shareAmounts
   );

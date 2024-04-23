@@ -8,8 +8,6 @@ export const useYeeters = ({ chainId }: { chainId?: string }) => {
   const chain = getValidChainId(chainId);
   const graphQLClient = new GraphQLClient(GRAPH_URL[chain]);
 
-  console.log("GRAPH_URL[chain]", GRAPH_URL[chain]);
-
   const { data, ...rest } = useQuery(
     [`get-yeeters-${chainId}`, { chainId }],
     async () => {
