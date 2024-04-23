@@ -43,6 +43,10 @@ const NetworkContainer = styled.div`
   gap: 2rem;
 `;
 
+const StyledSelect = styled(Select)`
+  width: 175px;
+`;
+
 export const Explore = () => {
   const { chainId, validNetwork } = useConnect();
   const [displayNetwork, setDisplayNetwork] = useState(DEFAULT_CHAIN_ID);
@@ -64,7 +68,7 @@ export const Explore = () => {
       <StyledYeetH1>EXPLORE YEETERS</StyledYeetH1>
       <NetworkContainer>
         <StyledH1>ON</StyledH1>
-        <Select
+        <StyledSelect
           // @ts-expect-error
           options={Object.keys(targetNetworks).map((key) => {
             return {
@@ -75,6 +79,7 @@ export const Explore = () => {
           defaultValue={displayNetwork}
           onChange={handleSelect}
           long={true}
+          full
         />
       </NetworkContainer>
       <HomeDashboard chainId={displayNetwork} />;
