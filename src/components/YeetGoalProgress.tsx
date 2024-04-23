@@ -37,6 +37,10 @@ export const YeetGoalProgress = ({
     ? `${calcProgressPerc(yeeter.balance, yeeter.goal)}%`
     : "0%";
 
+  if (!yeeter || !yeeter.balance || !yeeter.goal) {
+    return null;
+  }
+
   return (
     <>
       {!yeeter.isComingSoon && (

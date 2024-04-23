@@ -18,7 +18,6 @@ const StyledDaoCard = styled.div`
   gap: 1rem;
   width: 34rem;
   height: 34rem;
-  border: 1px solid ${(props) => props.theme.secondary.step2};
   padding: 2.4rem;
   border-radius: ${(props) => props.theme.card.radius};
   box-shadow: 5px 5px ${deathBlack.step1}, -5px -5px ${jaundiceYellow.step1};

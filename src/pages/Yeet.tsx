@@ -20,7 +20,6 @@ export const Yeet = () => {
     result: any,
     txReceipt: any
   ) => {
-    console.log("txReceipt", txReceipt);
     navigate(
       `success/${result?.yeets[0]?.shares}/${txReceipt.transactionHash}`
     );
