@@ -33,13 +33,15 @@ export const YeetGoalProgress = ({
   yeeter: YeeterItem;
   chainId: string;
 }) => {
-  if (!yeeter) {
+  if (!yeeter || yeeter.balance === undefined || yeeter.goal === undefined) {
     return null;
   }
 
   const percentageComplete = yeeter
     ? `${calcProgressPerc(yeeter.balance, yeeter.goal)}%`
     : "0%";
+
+  console.log("yeeter", yeeter);
 
   return (
     <>
