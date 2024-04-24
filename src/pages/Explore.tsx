@@ -76,7 +76,7 @@ export const Explore = () => {
               value: key,
             };
           })}
-          defaultValue={displayNetwork}
+          value={displayNetwork}
           onChange={handleSelect}
           long={true}
           full
