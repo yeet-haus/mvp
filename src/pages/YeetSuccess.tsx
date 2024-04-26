@@ -1,6 +1,6 @@
 import { useDHConnect } from "@daohaus/connect";
 import { generateExplorerLink } from "@daohaus/keychain-utils";
-import { Button, H1, SingleColumnLayout, Link, widthQuery } from "@daohaus/ui";
+import { Button, SingleColumnLayout, Link, widthQuery } from "@daohaus/ui";
 import { fromWei } from "@daohaus/utils";
 import { useMemo } from "react";
 import { Link as RouterLink, useParams } from "react-router-dom";
@@ -60,9 +60,18 @@ export const YeetSuccess = () => {
   const { chainId } = useDHConnect();
 
   const formattedLoot = useMemo(() => {
-    if (!lootReceived) return "SOME";
+    console.log("lootReceived", lootReceived);
+    if (!lootReceived) {
+      return "SOME";
+    } else {
+      try {
+        return fromWei(lootReceived);
+      } catch (err) {
+        console.log("err", err);
 
-    return fromWei(lootReceived);
+        return "SOME";
+      }
+    }
   }, [lootReceived]);
 
   const explorerLink = useMemo(() => {
