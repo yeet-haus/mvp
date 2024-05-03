@@ -12,11 +12,18 @@ type KEYCHAIN = {
 };
 
 export const GRAPH_URL: KEYCHAIN = {
-  "0xaa36a7":
-    "https://api.thegraph.com/subgraphs/name/yeet-haus/yeeter-sepolia",
-  "0x64": "https://api.thegraph.com/subgraphs/name/yeet-haus/yeeter-gnosis",
-  "0xa": "https://api.thegraph.com/subgraphs/name/yeet-haus/yeeter-optimism",
-  "0xa4b1": "https://api.thegraph.com/subgraphs/name/yeet-haus/yeeter-arbitrum",
+  "0xaa36a7": `https://gateway-arbitrum.network.thegraph.com/api/${
+    import.meta.env.VITE_YEETER_GRAPH_API_KEY
+  }/subgraphs/id/8Syem3ZN88cut1wL8AqPHNo658Px7M2CkRuHAGuxvf6j`,
+  "0x64": `https://gateway-arbitrum.network.thegraph.com/api/${
+    import.meta.env.VITE_YEETER_GRAPH_API_KEY
+  }/subgraphs/id/EGG5xEkiKKtGa9frTfBSmL2w7ZmzPDke5ZuvxDRwQcGe`,
+  "0xa": `https://gateway-arbitrum.network.thegraph.com/api/${
+    import.meta.env.VITE_YEETER_GRAPH_API_KEY
+  }/subgraphs/id/55wEbRchfvjtWsy5NqLc4hp9C7xbX9yk8bAr3UQA8F7x`,
+  "0xa4b1": `https://gateway-arbitrum.network.thegraph.com/api/${
+    import.meta.env.VITE_YEETER_GRAPH_API_KEY
+  }/subgraphs/id/BeGugH1TsMspZ7Nov1Uq2PQ98X78sqjuEy1JFGLyNgt5`,
   "0x2105": `https://gateway-arbitrum.network.thegraph.com/api/${
     import.meta.env.VITE_YEETER_GRAPH_API_KEY
   }/subgraphs/id/6vyAqRpCyrhLsfd6TfYAssvKywKhxJykkDbPxJZ4ZcEr`,
