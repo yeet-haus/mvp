@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import { DataIndicator, Radio, Select } from "@daohaus/ui";
-import { ValidNetwork } from "@daohaus/keychain-utils";
+import { DataIndicator, DataLg, Select } from "@daohaus/ui";
+import { ValidNetwork, getNetworkName } from "@daohaus/keychain-utils";
 import { useDaoData } from "@daohaus/moloch-v3-hooks";
 import { useYeeter } from "../hooks/useYeeter";
 import { useYeets } from "../hooks/useYeets";
@@ -35,6 +35,12 @@ const YeetsHeader = styled.div`
   .yeetSelect {
     box-shadow: 3px 3px ${deathBlack.step1};
   }
+`;
+
+const ChainNameContainer = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
 `;
 
 type DaoOverviewProps = {
@@ -94,6 +100,11 @@ export const DaoOverview = ({
             {yeeter && <YeetGoalProgress yeeter={yeeter} chainId={daoChain} />}
             {yeeter && <YeetTimeBlock yeeter={yeeter} />}
             {yeeter && <YeetButton yeeter={yeeter} chainId={daoChain} />}
+            {yeeter && daoChain && (
+              <ChainNameContainer>
+                <DataLg>on {getNetworkName(daoChain)}</DataLg>
+              </ChainNameContainer>
+            )}
           </OverviewCard>
           <OverviewCard>
             <YeetsHeader>
