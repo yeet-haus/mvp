@@ -75,13 +75,31 @@ export const Success = () => {
       <Contain>
         <StyledYeetH1>AAAAAH SHIIIIIIIIT YOU MADE A YEETER!</StyledYeetH1>
         <ButtonContainer>
-          <ShadowButton color="primary" fullWidth>
+          <ShadowButton
+            color="primary"
+            fullWidth
+            placeholder={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
             <LinkButton to={`/molochV3/${chainId}/${daoId}/`}>
               VIEW PROJECT
             </LinkButton>
           </ShadowButton>
-          <ShadowButton color="secondary" fullWidth>
-            <ExternalLinkButton href={explorerLink} showExternalIcon={false}>
+          <ShadowButton
+            color="secondary"
+            fullWidth
+            placeholder={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
+            <ExternalLinkButton
+              href={explorerLink}
+              showExternalIcon={false}
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
               VIEW TXN
             </ExternalLinkButton>
           </ShadowButton>

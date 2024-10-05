@@ -91,21 +91,48 @@ export const YeetSuccess = () => {
           SOMEONE YEETED & RECEIVED {formattedLoot} LOOT!
         </StyledYeetH1>
         <ButtonContainer>
-          <ShadowButton color="secondary" fullWidth>
+          <ShadowButton
+            color="secondary"
+            fullWidth
+            placeholder={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
             <LinkButton to={`/molochV3/${chainId}/${daoId}/`}>
               BACK TO PROJECT
             </LinkButton>
           </ShadowButton>
-          <ShadowButton color="secondary" fullWidth>
+          <ShadowButton
+            color="secondary"
+            fullWidth
+            placeholder={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
             <ExternalLinkButton
               href={`https://admin.daohaus.club/#/molochv3/${chainId}/${daoId}`}
               showExternalIcon={false}
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
             >
               VISIT THE DAO
             </ExternalLinkButton>
           </ShadowButton>
-          <ShadowButton color="secondary" fullWidth>
-            <ExternalLinkButton href={explorerLink} showExternalIcon={false}>
+          <ShadowButton
+            color="secondary"
+            fullWidth
+            placeholder={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
+            <ExternalLinkButton
+              href={explorerLink}
+              showExternalIcon={false}
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
               VIEW TXN
             </ExternalLinkButton>
           </ShadowButton>

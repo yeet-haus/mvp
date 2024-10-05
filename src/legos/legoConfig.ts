@@ -13,6 +13,7 @@ import { YeeterEpochDatePicker } from "../components/customFields/YeeterEpochDat
 import { DateWarning } from "../components/customFields/DateWarning";
 import { LabeledToWeiInput } from "../components/customFields/LabeledToWeiInput";
 import { YeetPerLootMod } from "../components/customFields/YeetPerLootMod";
+import { YeetFeeDisclosure } from "../components/customFields/YeetFeeDisclosure";
 
 export const AppFieldLookup = {
   ...MolochFields,
@@ -26,6 +27,7 @@ export const AppFieldLookup = {
   yeetDate: YeeterEpochDatePicker,
   dateWarning: DateWarning,
   labeledToWei: LabeledToWeiInput,
+  feeDisclosure: YeetFeeDisclosure,
 };
 
 export type CustomFieldLego = FieldLegoBase<typeof AppFieldLookup>;

@@ -10,6 +10,33 @@ import { deathBlack, jaundiceYellow } from "../../theme/colors";
 import { YeetButtonRouterLink } from "../layout/Shared";
 import { HAUS_NETWORK_DATA, ValidNetwork } from "@daohaus/keychain-utils";
 
+const CardButton = styled(YeetButtonRouterLink)`
+  background-color: ${jaundiceYellow.step1};
+  color: ${deathBlack.step1};
+  letter-spacing: 1.8px;
+  outline: none;
+  text-decoration: none;
+  transition: 0.2s all;
+  width: fit-content;
+  font-size: ${({ theme }) => theme.font.size.lg};
+
+  height: 6rem;
+  min-width: 10.7rem;
+  padding: 1.5rem;
+
+  padding: 1.2rem;
+  border-radius: 200px;
+  border: 1px solid black;
+  box-shadow: 3px 3px ${deathBlack.step1};
+
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background-color: ${jaundiceYellow.step2};
+  }
+`;
+
 const StyledDaoCard = styled.div`
   background-color: ${(props) => props.theme.card.bg};
   display: flex;
@@ -39,7 +66,7 @@ const StyledDaoCard = styled.div`
 
 const FatParLg = styled(ParXl)`
   font-weight: 800;
-  font-size: 3rem;
+  font-size: 2.75rem;
 `;
 
 export const DaoCard = ({
@@ -65,8 +92,8 @@ export const DaoCard = ({
       </div>
       <FatParLg className="dao-title">
         {dao?.name
-          ? charLimit(dao.name, 11)?.toUpperCase()
-          : charLimit(yeeter.id, 11)?.toUpperCase()}{" "}
+          ? charLimit(dao.name, 12)?.toUpperCase()
+          : charLimit(yeeter.id, 12)?.toUpperCase()}{" "}
       </FatParLg>
       <div className="stats-box">
         <ParLg>
@@ -79,13 +106,9 @@ export const DaoCard = ({
       <div className="tag-box">
         <YeeterStatusTag yeeter={yeeter} fontSize="sm" />
       </div>
-      <YeetButtonRouterLink
-        size="lg"
-        color="secondary"
-        to={`/molochv3/${chainId}/${yeeter.dao.id}`}
-      >
+      <CardButton size="lg" to={`/molochv3/${chainId}/${yeeter.dao.id}`}>
         GO
-      </YeetButtonRouterLink>
+      </CardButton>
     </StyledDaoCard>
   );
 };

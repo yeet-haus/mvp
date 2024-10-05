@@ -73,7 +73,14 @@ export const YeeterEpochDatePicker = (props: Buildable<Field>) => {
 
   const CustomInput = forwardRef<HTMLButtonElement, Props>(
     ({ value, onClick }, ref) => (
-      <Button className="custom-button-input" onClick={onClick} ref={ref}>
+      <Button
+        className="custom-button-input"
+        onClick={onClick}
+        ref={ref}
+        placeholder={undefined}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      >
         {value}
       </Button>
     )

@@ -1,6 +1,7 @@
 import { APP_TX } from "./tx";
 import { CustomFormLego } from "./legoConfig";
 import { FIELD } from "@daohaus/moloch-v3-legos";
+import { FEE_DISCLOSURE } from "../utils/constants";
 
 export const APP_FORM: Record<string, CustomFormLego> = {
   YEET_FORM: {
@@ -8,7 +9,6 @@ export const APP_FORM: Record<string, CustomFormLego> = {
     requiredFields: {
       amount: true,
     },
-    log: true,
     tx: APP_TX.YEET,
     fields: [
       {
@@ -54,7 +54,6 @@ export const APP_FORM: Record<string, CustomFormLego> = {
       members: true,
       lootPerYeet: true,
     },
-    log: true,
     tx: APP_TX.YEETER_SUMMON,
     fields: [
       {
@@ -91,6 +90,7 @@ export const APP_FORM: Record<string, CustomFormLego> = {
           },
         ],
       },
+
       {
         id: "goal",
         type: "labeledToWei",
@@ -135,6 +135,11 @@ export const APP_FORM: Record<string, CustomFormLego> = {
       {
         id: "warning",
         type: "dateWarning",
+      },
+      {
+        id: "feeDisclosure",
+        type: "feeDisclosure",
+        label: "GET",
       },
     ],
   },
