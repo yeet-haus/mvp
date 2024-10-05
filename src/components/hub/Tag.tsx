@@ -1,7 +1,4 @@
 import React, { ReactNode } from "react";
-import classNames from "classnames";
-
-import { IconType } from "react-icons/lib/esm";
 
 const BaseTag = styled.div<{
   $fontSize?: string;
@@ -35,26 +32,16 @@ const BaseTag = styled.div<{
 type TagProps = {
   children: ReactNode;
   className?: string;
-  IconLeft?: IconType;
-  IconRight?: IconType;
   fontSize?: string;
 };
 
 import styled from "styled-components";
 import { deathBlack, nipplePink } from "../../theme/colors";
 
-export const Tag = ({
-  className,
-  children,
-  IconLeft,
-  IconRight,
-  fontSize = "1.2rem",
-}: TagProps) => {
+export const Tag = ({ className, children, fontSize = "1.2rem" }: TagProps) => {
   return (
     <BaseTag className={className} $fontSize={fontSize}>
-      {IconLeft && <IconLeft className="icon-left" />}
       {children}
-      {IconRight && <IconRight className="icon-right" />}
     </BaseTag>
   );
 };

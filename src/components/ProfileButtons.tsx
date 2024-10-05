@@ -4,8 +4,9 @@ import { DataMd, Link, ParXs, widthQuery } from "@daohaus/ui";
 import { useDaoMember } from "@daohaus/moloch-v3-hooks";
 import { YeeterMetadata } from "../utils/types";
 import { useMemo } from "react";
-import { deathBlack, nipplePink } from "../theme/colors";
+import { deathBlack, jaundiceYellow, nipplePink } from "../theme/colors";
 import { YeetButtonRouterLink } from "./layout/Shared";
+import { RiExternalLinkLine } from "react-icons/ri/index.js";
 
 export const ButtonRow = styled.div`
   display: flex;
@@ -31,24 +32,55 @@ const BoldDataMd = styled(DataMd)`
   font-weight: 900;
 `;
 
-const ButtonLink = styled(Link)`
+const ButtonLink = styled.a`
   background-color: ${nipplePink.step1};
   color: ${deathBlack.step1};
-  /* width: fit-content; */
   height: 5rem;
   min-width: 250px;
 
   padding: 1.2rem;
   border-radius: 200px;
   border: 1px solid black;
-  font-size: ${({ theme }) => theme.font.size.sm};
+  font-size: ${({ theme }) => theme.font.size.md};
+  font-weight: 700;
+  box-shadow: 3px 3px ${deathBlack.step1};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+
+  line-height: 1.5;
+  &:hover {
+    background-color: ${nipplePink.step2};
+  }
+`;
+
+const CardButton = styled(YeetButtonRouterLink)`
+  background-color: ${jaundiceYellow.step1};
+  color: ${deathBlack.step1};
+  letter-spacing: 1.8px;
+  outline: none;
+  text-decoration: none;
+  transition: 0.2s all;
+  width: fit-content;
+  font-size: ${({ theme }) => theme.font.size.lg};
+
+  height: 6rem;
+  min-width: 10.7rem;
+  padding: 1.5rem;
+
+  padding: 1.2rem;
+  border-radius: 200px;
+  border: 1px solid black;
   box-shadow: 3px 3px ${deathBlack.step1};
 
   display: flex;
   justify-content: center;
 
   &:hover {
-    background-color: ${nipplePink.step2};
+    background-color: ${jaundiceYellow.step2};
   }
 `;
 
@@ -96,6 +128,7 @@ export const ProfileButtons = ({
           key={daoId}
         >
           DAO
+          <RiExternalLinkLine />
         </ButtonLink>
         {linkList &&
           linkList.map((linkObj: LinkObj) => {
@@ -106,15 +139,16 @@ export const ProfileButtons = ({
                 key={linkObj.label}
               >
                 {linkObj.label}
+                <RiExternalLinkLine />
               </ButtonLink>
             );
           })}
 
         {member && Number(member.shares) > 0 && (
           <div className="editLink">
-            <YeetButtonRouterLink to="update" size="sm">
+            <CardButton to="update" size="sm">
               <ParXs color="primary">Edit Yeet Details</ParXs>
-            </YeetButtonRouterLink>
+            </CardButton>
           </div>
         )}
       </ButtonRow>
