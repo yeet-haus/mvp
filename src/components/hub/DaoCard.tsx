@@ -39,7 +39,7 @@ const StyledDaoCard = styled.div`
 
 const FatParLg = styled(ParXl)`
   font-weight: 800;
-  font-size: 3rem;
+  font-size: 2.75rem;
 `;
 
 export const DaoCard = ({
@@ -65,8 +65,8 @@ export const DaoCard = ({
       </div>
       <FatParLg className="dao-title">
         {dao?.name
-          ? charLimit(dao.name, 11)?.toUpperCase()
-          : charLimit(yeeter.id, 11)?.toUpperCase()}{" "}
+          ? charLimit(dao.name, 12)?.toUpperCase()
+          : charLimit(yeeter.id, 12)?.toUpperCase()}{" "}
       </FatParLg>
       <div className="stats-box">
         <ParLg>
