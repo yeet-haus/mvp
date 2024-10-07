@@ -90,3 +90,5 @@ export const DEFAULT_SUMMON_VALUES = {
   nvTransferable: false,
   shareAmounts: "1000000000000000000",
 };
+export const FEE_DISCLOSURE =
+  "The Yeeter protocol fee is 3% on all contributions. Fees in the network's native token are sent to the Yeeter safe. These funds are used to maintain and enhance the platform while supporting the DAOhaus community.";

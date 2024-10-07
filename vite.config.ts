@@ -36,6 +36,9 @@ export default ({ mode }) => {
 
     build: {
       target: ["es2020"],
+      rollupOptions: {
+        // external: ["#minpath", "#minproc", "#minurl"],
+      },
     },
   });
 };
