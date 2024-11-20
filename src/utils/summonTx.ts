@@ -64,8 +64,12 @@ const assembleLootTokenParams = ({
   chainId: ValidNetwork;
 }) => {
   const yeetName = formValues["daoName"];
-  const tokenName = `nv${yeetName}`;
-  const tokenSymbol = `nv${yeetName}`;
+  const tokenName = import.meta.env.VITE_TOKEN_NAME_OVERRIDE
+    ? `${yeetName}`
+    : `nv${yeetName}`;
+  const tokenSymbol = import.meta.env.VITE_TOKEN_NAME_OVERRIDE
+    ? `${yeetName}`
+    : `nv${yeetName}`;
 
   // const tokenName = formValues["lootTokenName"];
   // const tokenSymbol = formValues["lootTokenSymbol"];
