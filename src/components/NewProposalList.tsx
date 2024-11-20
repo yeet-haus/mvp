@@ -1,5 +1,5 @@
 import { Link as RouterLink } from "react-router-dom";
-import { RiArrowRightSLine } from "react-icons/ri/index.js";
+import { RiArrowRightSLine } from "react-icons/ri";
 import styled from "styled-components";
 
 import { Bold, DataSm, ParMd, Tabs } from "@daohaus/ui";

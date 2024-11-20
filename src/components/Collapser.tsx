@@ -1,7 +1,7 @@
 import { ReactNode, useState } from "react";
 import styled from "styled-components";
 
-import { RiArrowUpSLine, RiArrowDownSLine } from "react-icons/ri/index.js";
+import { RiArrowUpSLine, RiArrowDownSLine } from "react-icons/ri";
 
 import { Card, DataLg, DataMd, ParMd } from "@daohaus/ui";
 

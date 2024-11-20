@@ -6,7 +6,7 @@ import { YeeterMetadata } from "../utils/types";
 import { useMemo } from "react";
 import { deathBlack, jaundiceYellow, nipplePink } from "../theme/colors";
 import { YeetButtonRouterLink } from "./layout/Shared";
-import { RiExternalLinkLine } from "react-icons/ri/index.js";
+import { RiExternalLinkLine } from "react-icons/ri";
 
 export const ButtonRow = styled.div`
   display: flex;
@@ -125,6 +125,7 @@ export const ProfileButtons = ({
         <ButtonLink
           href={`https://admin.daohaus.club/#/molochv3/${daoChain}/${daoId}`}
           type="external"
+          target="_blank"
           key={daoId}
         >
           DAO
@@ -136,6 +137,7 @@ export const ProfileButtons = ({
               <ButtonLink
                 href={linkObj.url}
                 type="external"
+                target="_blank"
                 key={linkObj.label}
               >
                 {linkObj.label}
