@@ -119,6 +119,7 @@ export const YeetProfile = ({
               daoId={dao.id}
               address={address}
               metadata={metadata}
+              shamanAddress={shamanAddress}
             />
           </DetailsContainer>
         }

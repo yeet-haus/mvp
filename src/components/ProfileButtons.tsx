@@ -94,11 +94,13 @@ export const ProfileButtons = ({
   daoId,
   address,
   metadata,
+  shamanAddress,
 }: {
   daoChain: ValidNetwork;
   daoId: string;
   address?: string;
   metadata: YeeterMetadata;
+  shamanAddress: string;
 }) => {
   const { member } = useDaoMember({ daoChain, daoId, memberAddress: address });
 
@@ -122,6 +124,17 @@ export const ProfileButtons = ({
     <>
       <ButtonRow>
         <BoldDataMd>PROJECT LINKS</BoldDataMd>
+        {daoChain !== "0xaa36a7" && (
+          <ButtonLink
+            href={`https://warpcast.com/~/compose?text=&embeds[]=https://frames.yeet.haus/yeeter/${shamanAddress}`}
+            type="external"
+            target="_blank"
+            key={shamanAddress}
+          >
+            CAST FRAME ON WARPCAST
+            <RiExternalLinkLine />
+          </ButtonLink>
+        )}
         <ButtonLink
           href={`https://admin.daohaus.club/#/molochv3/${daoChain}/${daoId}`}
           type="external"
