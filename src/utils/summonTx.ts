@@ -1,12 +1,10 @@
 import {
   ArbitraryState,
-  EthAddress,
   POSTER_TAGS,
   encodeFunction,
   encodeValues,
   getNonce,
   isArray,
-  isEthAddress,
   isNumberish,
   isString,
 } from "@daohaus/utils";
@@ -103,23 +101,15 @@ const assembleShareTokenParams = ({
   formValues: Record<string, unknown>;
   chainId: ValidNetwork;
 }) => {
-  const yeetName = formValues["daoName"];
-  const tokenName = `v${yeetName}`;
-  const tokenSymbol = `v${yeetName}`;
+  const yeetName = formValues["daoName"] as string;
+  const tokenName = `${yeetName}`;
+  const tokenSymbol = `${yeetName.substring(0, 2)}SHARES`;
   const shareSingleton = CONTRACT_KEYCHAINS["SHARES_SINGLETON"][chainId];
-
-  const shareHolders: string[] = formValues["members"] as string[];
-
-  const shareAmounts = shareHolders.map(
-    (s: string) => DEFAULT_SUMMON_VALUES.shareAmounts
-  );
 
   if (
     !isString(yeetName) ||
     !isString(tokenName) ||
     !isString(tokenSymbol) ||
-    !isArray(shareHolders) ||
-    shareHolders.some((addr) => !isString(addr)) ||
     !shareSingleton
   ) {
     console.log("ERROR: passed args");
@@ -130,8 +120,8 @@ const assembleShareTokenParams = ({
   }
 
   const shareParams = encodeValues(
-    ["string", "string", "address[]", "uint256[]"],
-    [tokenName, tokenSymbol, shareHolders, shareAmounts]
+    ["string", "string"],
+    [tokenName, tokenSymbol]
   );
 
   return encodeValues(["address", "bytes"], [shareSingleton, shareParams]);
@@ -209,6 +199,8 @@ const assembleInitActions = ({
 
   return [
     governanceConfigTX(DEFAULT_SUMMON_VALUES),
+    tokenConfigTX(),
+    tokenMintTX(formValues),
     metadataConfigTX(formValues, POSTER),
   ];
 };
@@ -250,6 +242,50 @@ const governanceConfigTX = (formValues: SummonParams) => {
   const encoded = encodeFunction(LOCAL_ABI.BAAL, "setGovernanceConfig", [
     encodedValues,
   ]);
+  if (isString(encoded)) {
+    return encoded;
+  }
+  throw new Error("Encoding Error");
+};
+
+const tokenConfigTX = () => {
+  const lootPaused = DEFAULT_SUMMON_VALUES.nvTransferable;
+  const sharesPaused = DEFAULT_SUMMON_VALUES.votingTransferable;
+
+  const encoded = encodeFunction(LOCAL_ABI.BAAL, "setAdminConfig", [
+    lootPaused,
+    sharesPaused,
+  ]);
+  console.log("lootPaused", lootPaused);
+  console.log("sharesPaused", sharesPaused);
+
+  console.log("encoded", encoded);
+  if (isString(encoded)) {
+    return encoded;
+  }
+  throw new Error("Encoding Error");
+};
+
+const tokenMintTX = (formValues: Record<string, unknown>) => {
+  const shareHolders: string[] = formValues["members"] as string[];
+
+  const shareAmounts = shareHolders.map(
+    () => DEFAULT_SUMMON_VALUES.shareAmounts
+  );
+
+  if (!isArray(shareHolders) || shareHolders.some((addr) => !isString(addr))) {
+    console.log("ERROR: passed args");
+
+    throw new Error(
+      "tokenMintTX recieved arguments in the wrong shape or type"
+    );
+  }
+
+  const encoded = encodeFunction(LOCAL_ABI.BAAL, "mintShares", [
+    shareHolders,
+    shareAmounts,
+  ]);
+
   if (isString(encoded)) {
     return encoded;
   }
