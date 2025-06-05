@@ -87,8 +87,8 @@ const assembleLootTokenParams = ({
   }
 
   const lootParams = encodeValues(
-    ["string", "string", "address[]", "uint256[]"],
-    [tokenName, tokenSymbol, [], []]
+    ["string", "string"],
+    [tokenName, tokenSymbol]
   );
 
   return encodeValues(["address", "bytes"], [lootSingleton, lootParams]);
