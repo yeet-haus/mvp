@@ -249,7 +249,7 @@ const governanceConfigTX = (formValues: SummonParams) => {
 };
 
 const tokenConfigTX = () => {
-  const lootPaused = DEFAULT_SUMMON_VALUES.nvTransferable;
+  const lootPaused = DEFAULT_SUMMON_VALUES.nvPaused;
   const sharesPaused = DEFAULT_SUMMON_VALUES.votingPaused;
 
   const encoded = encodeFunction(LOCAL_ABI.BAAL, "setAdminConfig", [
